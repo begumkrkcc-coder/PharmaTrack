@@ -1,0 +1,7 @@
+ID,name,description,isActive
+CAT001,Ağrı Kesici ve Ateş Düşürücü,Analjezik ilaçlar,true
+CAT002,Antibiyotik,Bakteriyel enfeksiyon ilaçları,true
+CAT003,Soğuk Algınlığı,Grip ve soğuk algınlığı ürünleri,true
+CAT004,Mide ve Sindirim,Gastroenteroloji ürünleri,true
+CAT005,Solunum Sistemi,Astım ve KOAH ilaçları,true
+CAT006,Vitamin ve Takviye,Vitamin ve mineral ürünleri,true

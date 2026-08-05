@@ -1,0 +1,5 @@
+ID,username,passwordHash,fullName,role,isActive,branch_ID
+aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa,admin,240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9,PharmaTrack Yönetici,ADMIN,true,
+bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb,kadikoy,a2fbe6eb6b3c05be06d1b6a448ba7e1da1aa476c8ea578a427d4b2aa68d64dfb,Kadıköy Şubesi,BRANCH,true,11111111-1111-1111-1111-111111111111
+cccccccc-cccc-cccc-cccc-cccccccccccc,besiktas,708e2c5c5745c797001fdb6fe1fc512d323f816a7d3c6528f773d6db0c53d322,Beşiktaş Şubesi,BRANCH,true,22222222-2222-2222-2222-222222222222
+dddddddd-dddd-dddd-dddd-dddddddddddd,uskudar,11bf08f9816fd5f9e825d922f6fc88fb620ca4f8897e994f9238ead4f8812a11,Üsküdar Şubesi,BRANCH,true,33333333-3333-3333-3333-333333333333

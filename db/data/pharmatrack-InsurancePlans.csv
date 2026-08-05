@@ -1,0 +1,5 @@
+ID,code,name,planType,patientContributionRate,prescriptionFee,isPublicInsurance,validFrom,validTo,isActive
+53d3e07b-b61d-57db-a17c-4711f77b4dd0,SGK-AKTIF,SGK Aktif Çalışan,PUBLIC,20.00,7.50,true,2026-01-01,2027-12-31,true
+db585d76-8818-59ef-a805-55a5d9499d4e,SGK-EMEKLI,SGK Emekli,PUBLIC,10.00,4.50,true,2026-01-01,2027-12-31,true
+7931e5d8-6d96-5792-83a4-f01df7d8fe0d,OZEL-80,Özel Sağlık Sigortası %80,PRIVATE,20.00,0.00,false,2026-01-01,2027-12-31,true
+efc4fc4a-c04b-5d3d-b769-a1748bc8659f,NAKIT,Sigortasız / Nakit,NONE,100.00,0.00,false,2026-01-01,2027-12-31,true

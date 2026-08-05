@@ -1,0 +1,572 @@
+<mvc:View
+    controllerName="pharmatrack.login.controller.Sales"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m"
+    displayBlock="true">
+
+    <Page
+        id="salesPage"
+        showHeader="false"
+        class="salesPage">
+
+        <content>
+            <VBox class="salesShell">
+
+                <!-- ÜST BAR -->
+                <HBox
+                    class="posHeader"
+                    alignItems="Center"
+                    justifyContent="SpaceBetween">
+
+                    <!-- SOL BAŞLIK ALANI -->
+                    <HBox
+                        alignItems="Center"
+                        class="posHeaderLeft">
+
+                        <Button
+                            icon="sap-icon://nav-back"
+                            type="Transparent"
+                            tooltip="Dashboard'a dön"
+                            press=".onBack"
+                            class="posBackButton"/>
+
+                        <HBox
+                            class="posLogo"
+                            alignItems="Center"
+                            justifyContent="Center">
+
+                            <core:Icon
+                                src="sap-icon://add"
+                                class="posLogoIcon"/>
+                        </HBox>
+
+                        <VBox>
+                            <Title
+                                text="Yeni Satış"
+                                level="H1"
+                                class="posHeaderTitle"/>
+
+                            <Text
+                                text="PharmaTrack Satış Terminali"
+                                class="posHeaderSubtitle"/>
+                        </VBox>
+                    </HBox>
+
+                    <!-- SAĞ KULLANICI VE SATIŞ GEÇMİŞİ ALANI -->
+                    <HBox alignItems="Center">
+
+                        <Button
+                            text="Satış Geçmişi"
+                            icon="sap-icon://sales-order"
+                            type="Transparent"
+                            tooltip="Tamamlanan satışları görüntüle"
+                            press=".onOpenSalesHistory"
+                            class="sapUiSmallMarginEnd"/>
+
+                        <HBox
+                            class="posUser"
+                            alignItems="Center">
+
+                            <HBox
+                                class="posUserIconBox"
+                                alignItems="Center"
+                                justifyContent="Center">
+
+                                <core:Icon
+                                    src="sap-icon://employee"
+                                    class="posUserIcon"/>
+                            </HBox>
+
+                            <VBox>
+                                <Text
+                                    id="salesUserName"
+                                    text="Kullanıcı"
+                                    class="posUserName"/>
+
+                                <Text
+                                    id="salesUserRole"
+                                    text="Rol"
+                                    class="posUserRole"/>
+                            </VBox>
+                        </HBox>
+                    </HBox>
+                </HBox>
+
+                <!-- ANA ALAN -->
+                <HBox
+                    class="posContent"
+                    alignItems="Start"
+                    wrap="Wrap">
+
+                    <!-- SOL TARAF -->
+                    <VBox class="posMainColumn">
+
+                        <!-- SATIŞ TÜRÜ -->
+                        <VBox class="posCard saleTypeCard">
+
+                            <HBox
+                                alignItems="Center"
+                                class="posCardHeader">
+
+                                <HBox
+                                    class="posStep"
+                                    alignItems="Center"
+                                    justifyContent="Center">
+
+                                    <Text text="1"/>
+                                </HBox>
+
+                                <VBox>
+                                    <Title
+                                        text="Satış Türü"
+                                        level="H2"
+                                        class="posCardTitle"/>
+
+                                    <Text
+                                        text="İşlem türünü seçerek satışa başlayın."
+                                        class="posCardDescription"/>
+                                </VBox>
+                            </HBox>
+
+                            
+                            <HBox
+    width="100%"
+    wrap="Wrap"
+    alignItems="Center"
+    class="posSaleType">
+
+    <Button
+        id="nonPrescriptionButton"
+        text="Reçetesiz Satış"
+        icon="sap-icon://cart"
+        type="Default"
+        width="15rem"
+        press=".onSelectNonPrescription"
+        class="sapUiTinyMarginEnd sapUiTinyMarginBottom"/>
+
+    <Button
+        id="prescriptionButton"
+        text="Reçeteli Satış"
+        icon="sap-icon://document-text"
+        type="Emphasized"
+        width="15rem"
+        press=".onSelectPrescription"
+        class="sapUiTinyMarginBottom"/>
+</HBox>
+                            <VBox
+                                id="prescriptionArea"
+                                visible="false"
+                                class="posPrescriptionArea">
+
+                                <HBox
+                                    class="posPrescriptionFields"
+                                    wrap="Wrap">
+
+                                    <VBox class="posField">
+                                        <Label
+                                            text="T.C. Kimlik Numarası"
+                                            labelFor="nationalIdInput"
+                                            class="posLabel"/>
+
+                                        <Input
+                                            id="nationalIdInput"
+                                            maxLength="11"
+                                            placeholder="11 haneli kimlik numarası"
+                                            class="posInput"/>
+                                    </VBox>
+
+                                    <VBox class="posField">
+                                        <Label
+                                            text="Reçete Numarası"
+                                            labelFor="prescriptionNumberInput"
+                                            class="posLabel"/>
+
+                                        <Input
+                                            id="prescriptionNumberInput"
+                                            placeholder="Reçete numarası"
+                                            class="posInput"/>
+                                    </VBox>
+
+                                    <Button
+                                        text="Reçeteyi Getir"
+                                        icon="sap-icon://search"
+                                        type="Emphasized"
+                                        press=".onLoadPrescription"
+                                        class="posPrescriptionButton"/>
+                                </HBox>
+                            </VBox>
+                        </VBox>
+
+                        <!-- BARKOD -->
+                        <VBox class="posCard barcodeCard">
+
+                            <HBox
+                                alignItems="Center"
+                                justifyContent="SpaceBetween"
+                                class="posCardHeader">
+
+                                <HBox alignItems="Center">
+
+                                    <HBox
+                                        class="posStep"
+                                        alignItems="Center"
+                                        justifyContent="Center">
+
+                                        <Text text="2"/>
+                                    </HBox>
+
+                                    <VBox>
+                                        <Title
+                                            text="Ürün Ekle"
+                                            level="H2"
+                                            class="posCardTitle"/>
+
+                                        <Text
+                                            text="Barkodu okutun veya elle girin."
+                                            class="posCardDescription"/>
+                                    </VBox>
+                                </HBox>
+
+                                <ObjectStatus
+                                    text="Tarayıcı Hazır"
+                                    state="Success"
+                                    icon="sap-icon://connected"
+                                    class="scannerStatus"/>
+                            </HBox>
+
+                            <HBox
+                                class="posBarcodeRow"
+                                alignItems="End"
+                                wrap="Wrap">
+
+                                <VBox class="posBarcodeInputArea">
+                                    <Label
+                                        text="Barkod Numarası"
+                                        labelFor="barcodeInput"
+                                        class="posLabel"/>
+
+                                    <Input
+                                        id="barcodeInput"
+                                        placeholder="Barkodu okutun veya yazın"
+                                        submit=".onAddByBarcode"
+                                        class="posBarcodeInput"/>
+                                </VBox>
+
+                                <Button
+                                    text="Barkod Tara"
+                                    icon="sap-icon://bar-code"
+                                    type="Emphasized"
+                                    press=".onScanBarcode"
+                                    class="posScanButton"/>
+
+                                <Button
+                                    text="Sepete Ekle"
+                                    icon="sap-icon://add"
+                                    press=".onAddByBarcode"
+                                    class="posAddButton"/>
+                            </HBox>
+
+                            <MessageStrip
+                                id="barcodeMessage"
+                                visible="false"
+                                showIcon="true"
+                                showCloseButton="false"
+                                type="Information"
+                                class="posMessage"/>
+                        </VBox>
+
+                        <!-- SEPET -->
+                        <VBox class="posCard posCartCard">
+
+                            <HBox
+                                alignItems="Center"
+                                justifyContent="SpaceBetween"
+                                class="posCartHeader">
+
+                                <HBox alignItems="Center">
+
+                                    <HBox
+                                        class="posStep"
+                                        alignItems="Center"
+                                        justifyContent="Center">
+
+                                        <Text text="3"/>
+                                    </HBox>
+
+                                    <VBox>
+                                        <Title
+                                            text="Satış Sepeti"
+                                            level="H2"
+                                            class="posCardTitle"/>
+
+                                        <Text
+                                            id="cartCountText"
+                                            text="Sepette ürün bulunmuyor."
+                                            class="posCardDescription"/>
+                                    </VBox>
+                                </HBox>
+
+                                <Button
+                                    text="Sepeti Temizle"
+                                    icon="sap-icon://delete"
+                                    type="Transparent"
+                                    press=".onClearCart"
+                                    class="posClearButton"/>
+                            </HBox>
+
+                            <Table
+                                id="cartTable"
+                                items="{cart>/items}"
+                                noDataText="Henüz sepete ilaç eklenmedi."
+                                inset="false"
+                                class="posCartTable">
+
+                                <columns>
+                                    <Column width="34%">
+                                        <Text text="İlaç"/>
+                                    </Column>
+
+                                    <Column width="18%">
+                                        <Text text="Barkod"/>
+                                    </Column>
+
+                                    <Column
+                                        width="20%"
+                                        hAlign="Center">
+
+                                        <Text text="Miktar"/>
+                                    </Column>
+
+                                    <Column
+                                        width="13%"
+                                        hAlign="End">
+
+                                        <Text text="Fiyat"/>
+                                    </Column>
+
+                                    <Column
+                                        width="10%"
+                                        hAlign="End">
+
+                                        <Text text="Toplam"/>
+                                    </Column>
+
+                                    <Column
+                                        width="5%"
+                                        hAlign="Center"/>
+                                </columns>
+
+                                <items>
+                                    <ColumnListItem
+                                        vAlign="Middle"
+                                        class="posCartItem">
+
+                                        <cells>
+                                            <HBox
+                                                alignItems="Center"
+                                                class="medicineCell">
+
+                                                <HBox
+                                                    class="medicineIconBox"
+                                                    alignItems="Center"
+                                                    justifyContent="Center">
+
+                                                    <core:Icon
+                                                        src="sap-icon://product"
+                                                        class="medicineIcon"/>
+                                                </HBox>
+
+                                                <VBox>
+                                                    <Text
+                                                        text="{cart>name}"
+                                                        class="medicineName"/>
+
+                                                    <Text
+                                                        text="{cart>manufacturer}"
+                                                        class="medicineManufacturer"/>
+                                                </VBox>
+                                            </HBox>
+
+                                            <Text
+                                                text="{cart>barcode}"
+                                                class="medicineBarcode"/>
+
+                                            <HBox
+                                                alignItems="Center"
+                                                justifyContent="Center"
+                                                class="posQuantity">
+
+                                                <Button
+                                                    icon="sap-icon://less"
+                                                    type="Transparent"
+                                                    press=".onDecreaseQuantity"
+                                                    class="posQuantityButton"/>
+
+                                                <Text
+                                                    text="{cart>quantity}"
+                                                    class="posQuantityText"/>
+
+                                                <Button
+                                                    icon="sap-icon://add"
+                                                    type="Transparent"
+                                                    press=".onIncreaseQuantity"
+                                                    class="posQuantityButton"/>
+                                            </HBox>
+
+                                            <ObjectNumber
+                                                number="{cart>unitPrice}"
+                                                unit="₺"
+                                                class="posPrice"/>
+
+                                            <ObjectNumber
+                                                number="{cart>lineTotal}"
+                                                unit="₺"
+                                                emphasized="true"
+                                                class="posLineTotal"/>
+
+                                            <Button
+                                                icon="sap-icon://delete"
+                                                type="Transparent"
+                                                tooltip="Ürünü sil"
+                                                press=".onRemoveItem"
+                                                class="posRemoveButton"/>
+                                        </cells>
+                                    </ColumnListItem>
+                                </items>
+                            </Table>
+                        </VBox>
+                    </VBox>
+
+                    <!-- SAĞ ÖZET -->
+                    <VBox class="posSummaryColumn">
+
+                        <VBox class="posSummaryCard">
+
+                            <HBox
+                                class="summaryTitleArea"
+                                alignItems="Center">
+
+                                <HBox
+                                    class="summaryIconBox"
+                                    alignItems="Center"
+                                    justifyContent="Center">
+
+                                    <core:Icon
+                                        src="sap-icon://receipt"
+                                        class="summaryIcon"/>
+                                </HBox>
+
+                                <VBox>
+                                    <Title
+                                        text="Satış Özeti"
+                                        level="H2"
+                                        class="summaryTitle"/>
+
+                                    <Text
+                                        text="Ödeme öncesi kontrol"
+                                        class="summarySubtitle"/>
+                                </VBox>
+                            </HBox>
+
+                            <VBox class="summaryDetails">
+
+                                <HBox
+                                    justifyContent="SpaceBetween"
+                                    class="summaryLine">
+
+                                    <Text text="Ara Toplam"/>
+
+                                    <ObjectNumber
+                                        number="{cart>/subtotal}"
+                                        unit="₺"/>
+                                </HBox>
+
+                                <HBox
+                                    justifyContent="SpaceBetween"
+                                    class="summaryLine">
+
+                                    <Text text="İndirim"/>
+
+                                    <ObjectNumber
+                                        number="{cart>/discount}"
+                                        unit="₺"/>
+                                </HBox>
+
+                                <HBox
+                                    justifyContent="SpaceBetween"
+                                    class="summaryLine">
+
+                                    <Text text="SGK Katkısı"/>
+
+                                    <ObjectNumber
+                                        number="0.00"
+                                        unit="₺"/>
+                                </HBox>
+                            </VBox>
+
+                            <HBox
+                                justifyContent="SpaceBetween"
+                                alignItems="Center"
+                                class="summaryGrandTotal">
+
+                                <Text
+                                    text="Ödenecek Tutar"
+                                    class="summaryGrandTotalLabel"/>
+
+                                <ObjectNumber
+                                    number="{cart>/total}"
+                                    unit="₺"
+                                    emphasized="true"
+                                    class="summaryGrandTotalValue"/>
+                            </HBox>
+
+                            <Button
+                                id="proceedPaymentButton"
+                                text="Ödemeye Geç"
+                                icon="sap-icon://payment-approval"
+                                type="Emphasized"
+                                width="100%"
+                                enabled="{cart>/hasItems}"
+                                press=".onProceedPayment"
+                                class="posPaymentButton"/>
+
+                            <HBox
+                                class="summarySecurity"
+                                alignItems="Center"
+                                justifyContent="Center">
+
+                                <core:Icon
+                                    src="sap-icon://locked"
+                                    class="summarySecurityIcon"/>
+
+                                <Text
+                                    text="Güvenli satış işlemi"
+                                    class="summarySecurityText"/>
+                            </HBox>
+                        </VBox>
+
+                        <VBox class="posHelpCard">
+
+                            <HBox alignItems="Center">
+
+                                <core:Icon
+                                    src="sap-icon://lightbulb"
+                                    class="helpIcon"/>
+
+                                <Title
+                                    text="Hızlı Kullanım"
+                                    level="H3"
+                                    class="helpTitle"/>
+                            </HBox>
+
+                            <Text
+                                text="Barkodu okutun. Ürün sepete otomatik eklenir. Aynı ürün tekrar okutulursa miktarı artar."
+                                class="helpText"/>
+                        </VBox>
+                    </VBox>
+                </HBox>
+            </VBox>
+        </content>
+    </Page>
+</mvc:View>

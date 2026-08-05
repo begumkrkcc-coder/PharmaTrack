@@ -1,0 +1,1449 @@
+
+/* =========================================================
+   PHARMATRACK — TEMİZ STYLE.CSS
+   ========================================================= */
+
+html,
+body,
+#content,
+.sapUiComponentContainer,
+.pharmaLoginPage,
+.pharmaLoginPage > section {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+}
+
+html,
+body {
+    background: #f6faf8;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.pharmaLoginPage {
+    background: transparent !important;
+}
+
+.pharmaScreen {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    box-sizing: border-box;
+    overflow-x: hidden;
+
+    background-image:
+        linear-gradient(
+            90deg,
+            rgba(248, 252, 250, 0.48) 0%,
+            rgba(255, 255, 255, 0.66) 48%,
+            rgba(247, 252, 250, 0.44) 100%
+        ),
+        url("../images/pharmacy-background.png");
+
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.pharmaScreen::before,
+.pharmaScreen::after {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.3;
+}
+
+.pharmaScreen::before {
+    top: 0;
+    left: 0;
+    width: 42%;
+    height: 25rem;
+
+    background-image:
+        radial-gradient(
+            circle,
+            rgba(15, 118, 110, 0.28) 1px,
+            transparent 1.4px
+        );
+
+    background-size: 10px 10px;
+    -webkit-mask-image: linear-gradient(145deg, #000 0%, transparent 65%);
+    mask-image: linear-gradient(145deg, #000 0%, transparent 65%);
+    transform: rotate(-7deg);
+}
+
+.pharmaScreen::after {
+    right: -4rem;
+    bottom: -2rem;
+    width: 38%;
+    height: 22rem;
+
+    background-image:
+        radial-gradient(
+            circle,
+            rgba(15, 118, 110, 0.24) 1px,
+            transparent 1.4px
+        );
+
+    background-size: 10px 10px;
+    -webkit-mask-image: linear-gradient(320deg, #000 0%, transparent 70%);
+    mask-image: linear-gradient(320deg, #000 0%, transparent 70%);
+    transform: rotate(8deg);
+}
+
+/* =========================================================
+   KARŞILAMA EKRANI
+   ========================================================= */
+
+.welcomeContent {
+    position: relative;
+    z-index: 1;
+
+    width: 100%;
+    max-width: 1160px;
+    min-height: 100vh;
+
+    margin: 0 auto;
+    padding: 5.2rem 2rem 2rem;
+    box-sizing: border-box;
+}
+
+.brandSection {
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto 1.35rem;
+    animation: welcomeReveal 0.6s ease;
+}
+
+.logoBox {
+    position: relative;
+
+    width: 5.2rem;
+    height: 5.2rem;
+    margin-bottom: 0.9rem;
+
+    border: 1px solid rgba(15, 118, 110, 0.13);
+    border-radius: 1.45rem;
+
+    background: rgba(255, 255, 255, 0.97);
+
+    box-shadow:
+        0 18px 46px rgba(31, 61, 55, 0.15),
+        0 4px 12px rgba(31, 61, 55, 0.05);
+}
+
+.logoCross {
+    color: #087f5b;
+    font-size: 2.9rem;
+}
+
+.logoCapsule {
+    position: absolute;
+    right: 0.5rem;
+    bottom: 0.5rem;
+
+    color: #55b782;
+    font-size: 1.3rem;
+
+    transform: rotate(-28deg);
+}
+
+.brandTitle {
+    margin: 0 0 0.12rem !important;
+
+    color: #064e3b !important;
+
+    font-size: 4.8rem !important;
+    font-weight: 900 !important;
+    line-height: 1.04 !important;
+    letter-spacing: -0.055em !important;
+}
+
+.brandSubtitle {
+    margin: 0 0 0.5rem !important;
+
+    color: #087f5b !important;
+
+    font-size: 1.35rem !important;
+    font-weight: 750 !important;
+}
+
+.brandDescription {
+    max-width: 610px;
+    margin: 0.8rem auto 0 !important;
+
+    color: #5c6f6b !important;
+
+    font-size: 1rem !important;
+    line-height: 1.5 !important;
+}
+
+/* =========================================================
+   ANA GİRİŞ BUTONU
+   ========================================================= */
+
+.welcomeLoginButton {
+    margin-top: 1.65rem;
+    margin-bottom: 0.25rem;
+}
+
+.welcomeLoginButton .sapMBtnInner {
+    min-width: 17rem !important;
+    height: 4rem !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    border: none !important;
+    border-radius: 1rem !important;
+
+    background:
+        linear-gradient(
+            90deg,
+            #087f5b,
+            #079b6d
+        ) !important;
+
+    color: #ffffff !important;
+
+    font-size: 1.2rem !important;
+    font-weight: 750 !important;
+
+    box-shadow:
+        0 14px 30px rgba(8, 127, 91, 0.28) !important;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        filter 0.2s ease;
+}
+
+.welcomeLoginButton:hover .sapMBtnInner {
+    transform: translateY(-2px);
+    filter: brightness(0.96);
+
+    box-shadow:
+        0 20px 40px rgba(8, 127, 91, 0.34) !important;
+}
+
+.welcomeLoginButton .sapMBtnContent,
+.welcomeLoginButton .sapMBtnIcon {
+    color: #ffffff !important;
+}
+
+.welcomeLoginButton .sapMBtnIcon {
+    margin-right: 0.55rem !important;
+}
+
+/* =========================================================
+   ÖZELLİK KARTLARI
+   ========================================================= */
+
+.featureArea {
+    width: 100%;
+    gap: 1.1rem;
+    margin: 3.1rem auto 0;
+
+    animation: featureReveal 0.78s ease;
+}
+
+.featureCard {
+    position: relative;
+
+    width: calc(33.333% - 0.74rem);
+    min-height: 9.6rem;
+    padding: 1.35rem 1.25rem;
+    box-sizing: border-box;
+
+    border: 1px solid rgba(15, 118, 110, 0.12);
+    border-radius: 1.08rem;
+
+    background: rgba(255, 255, 255, 0.92);
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    box-shadow:
+        0 13px 30px rgba(37, 68, 61, 0.08);
+
+    transition:
+        transform 0.22s ease,
+        box-shadow 0.22s ease,
+        border-color 0.22s ease;
+}
+
+.featureCard:hover {
+    transform: translateY(-5px);
+
+    border-color: rgba(15, 118, 110, 0.26);
+
+    box-shadow:
+        0 21px 42px rgba(37, 68, 61, 0.14);
+}
+
+.featureCardContent {
+    width: 100%;
+    gap: 1rem;
+    align-items: flex-start !important;
+}
+
+.featureIconBox {
+    flex-shrink: 0;
+
+    width: 3.7rem;
+    height: 3.7rem;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            145deg,
+            #d9f2e7,
+            #edf9f3
+        );
+}
+
+.featureIcon {
+    margin: 0 !important;
+
+    color: #087f5b;
+    font-size: 1.85rem;
+}
+
+.featureTextArea {
+    width: calc(100% - 4.7rem);
+}
+
+.featureTitle {
+    margin: 0 0 0.48rem !important;
+
+    color: #174b3e !important;
+
+    font-size: 1.02rem !important;
+    font-weight: 750 !important;
+}
+
+.featureText {
+    color: #687a76 !important;
+
+    font-size: 0.82rem !important;
+    line-height: 1.55 !important;
+}
+
+.featureCard::after {
+    content: "→";
+
+    position: absolute;
+    right: 1.1rem;
+    bottom: 0.95rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 2rem;
+    height: 2rem;
+
+    border-radius: 50%;
+
+    background: #e3f4ec;
+    color: #087f5b;
+
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+/* =========================================================
+   GÜVENLİK BANDI VE FOOTER
+   ========================================================= */
+
+.welcomeSecurityBanner {
+    width: 100%;
+    min-height: 4.35rem;
+
+    margin-top: 1.25rem;
+    padding: 0.85rem 1.2rem;
+    box-sizing: border-box;
+
+    border: 1px solid rgba(15, 118, 110, 0.11);
+    border-radius: 1rem;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(229, 247, 239, 0.95),
+            rgba(245, 251, 248, 0.95)
+        );
+}
+
+.welcomeSecurityContent {
+    gap: 0.8rem;
+}
+
+.securityBannerIconBox {
+    width: 2.65rem;
+    height: 2.65rem;
+
+    border-radius: 0.78rem;
+
+    background: rgba(255, 255, 255, 0.82);
+}
+
+.securityBannerIcon {
+    color: #087f5b;
+    font-size: 1.35rem;
+}
+
+.securityBannerText {
+    color: #395950 !important;
+
+    font-size: 0.84rem !important;
+    font-weight: 600 !important;
+}
+
+.securityLockBox {
+    width: 2.7rem;
+    height: 2.7rem;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.86);
+}
+
+.securityLockIcon {
+    color: #099268;
+    font-size: 1.08rem;
+}
+
+.newWelcomeFooter {
+    width: 100%;
+    padding: 0.95rem 0 0.3rem;
+    gap: 0.42rem;
+}
+
+.dataSourceArea {
+    gap: 0.42rem;
+}
+
+.dataSourceIcon {
+    color: #657a74;
+    font-size: 0.72rem;
+}
+
+.dataSourceText,
+.copyrightText {
+    color: #71827e !important;
+    font-size: 0.74rem !important;
+}
+
+.copyrightText {
+    margin-top: 0.12rem !important;
+}
+
+/* =========================================================
+   UI5 LOGIN DIALOG — CUSTOM HEADER
+   ========================================================= */
+
+.ptLoginDialog.sapMDialog {
+    width: 32rem !important;
+    max-width: calc(100vw - 2rem) !important;
+
+    overflow: hidden !important;
+
+    border: none !important;
+    border-radius: 1.5rem !important;
+
+    background: #ffffff !important;
+
+    box-shadow:
+        0 30px 80px rgba(23, 67, 55, 0.24) !important;
+}
+
+/* Dialog’un bütün katmanlarını beyaz yapar */
+
+.ptLoginDialog .sapMDialogSection,
+.ptLoginDialog .sapMDialogScroll,
+.ptLoginDialog .sapMDialogScrollCont,
+.ptLoginDialog .sapMDialogFooter,
+.ptLoginDialog .sapMIBar,
+.ptLoginDialog .sapMBar {
+    background: #ffffff !important;
+    box-sizing: border-box !important;
+}
+
+/* Özel başlık */
+
+.ptDialogCustomHeader.sapMTB {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 6rem !important;
+
+    padding: 1.35rem 2rem 1.15rem !important;
+    box-sizing: border-box !important;
+
+    border: none !important;
+    border-bottom: 1px solid #e4ebe8 !important;
+
+    background: #ffffff !important;
+
+    box-shadow: none !important;
+}
+
+.ptDialogHeaderTexts {
+    width: 100% !important;
+}
+
+.ptDialogHeaderTitle {
+    margin: 0 0 0.3rem !important;
+
+    color: #174b3e !important;
+
+    font-size: 1.55rem !important;
+    font-weight: 800 !important;
+    line-height: 1.25 !important;
+}
+
+.ptDialogHeaderDescription {
+    margin: 0 !important;
+
+    color: #71817d !important;
+
+    font-size: 0.9rem !important;
+    line-height: 1.4 !important;
+}
+
+/* İçerik */
+
+.ptLoginDialog .sapMDialogSection,
+.ptLoginDialog .sapMDialogScroll,
+.ptLoginDialog .sapMDialogScrollCont {
+    width: 100% !important;
+    border: none !important;
+}
+
+.ptLoginDialog .sapMDialogScrollCont {
+    padding: 0 !important;
+}
+
+.ptDialogContent {
+    width: 100% !important;
+
+    padding: 1.5rem 2rem 1.5rem !important;
+    box-sizing: border-box !important;
+
+    background: #ffffff !important;
+}
+
+/* Form alanları */
+
+.ptDialogFieldGroup {
+    width: 100% !important;
+    margin-bottom: 1.2rem !important;
+}
+
+.ptDialogLabelRow {
+    width: 100% !important;
+
+    gap: 0.55rem !important;
+    margin-bottom: 0.55rem !important;
+}
+
+.ptDialogLabelIcon {
+    color: #087f5b !important;
+    font-size: 1.05rem !important;
+}
+
+.ptDialogLabel {
+    color: #174b3e !important;
+
+    font-size: 0.95rem !important;
+    font-weight: 700 !important;
+}
+
+.ptDialogInput.sapMInputBase {
+    width: 100% !important;
+    min-height: 3.4rem !important;
+}
+
+.ptDialogInput .sapMInputBaseContentWrapper {
+    width: 100% !important;
+    min-height: 3.4rem !important;
+
+    box-sizing: border-box !important;
+
+    border: 1.5px solid #cedbd7 !important;
+    border-radius: 0.85rem !important;
+
+    background: #ffffff !important;
+}
+
+.ptDialogInput .sapMInputBaseInner {
+    height: 3.25rem !important;
+
+    padding: 0 1rem !important;
+
+    color: #294a42 !important;
+
+    font-size: 0.95rem !important;
+    line-height: 3.25rem !important;
+}
+
+.ptDialogInput.sapMInputBaseFocused .sapMInputBaseContentWrapper {
+    border-color: #087f5b !important;
+
+    box-shadow:
+        0 0 0 3px rgba(8, 127, 91, 0.11) !important;
+}
+
+/* Beni hatırla satırı */
+
+.ptDialogOptions {
+    width: 100% !important;
+    margin-bottom: 1.2rem !important;
+}
+
+.ptDialogOptions .sapMCbLabel {
+    color: #31554c !important;
+    font-size: 0.88rem !important;
+}
+
+.ptDialogForgotLink {
+    color: #087f5b !important;
+
+    font-size: 0.88rem !important;
+    font-weight: 700 !important;
+}
+
+.ptDialogMessage {
+    width: 100% !important;
+    margin-bottom: 1rem !important;
+
+    border-radius: 0.65rem !important;
+}
+
+/* Giriş butonu */
+
+.ptDialogLoginButton.sapMBtn {
+    width: 100% !important;
+    height: 3.65rem !important;
+    margin: 0 !important;
+}
+
+.ptDialogLoginButton .sapMBtnInner {
+    width: 100% !important;
+    height: 3.65rem !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    border: none !important;
+    border-radius: 0.9rem !important;
+
+    background:
+        linear-gradient(
+            90deg,
+            #087f5b,
+            #079b6d
+        ) !important;
+
+    color: #ffffff !important;
+
+    font-size: 1.05rem !important;
+    font-weight: 750 !important;
+
+    box-shadow:
+        0 13px 28px rgba(8, 127, 91, 0.24) !important;
+}
+
+.ptDialogLoginButton .sapMBtnContent,
+.ptDialogLoginButton .sapMBtnIcon {
+    color: #ffffff !important;
+}
+
+/* Güvenlik yazısı */
+
+.ptDialogSecurity {
+    width: 100% !important;
+
+    gap: 0.4rem !important;
+    margin-top: 1rem !important;
+}
+
+.ptDialogSecurityIcon {
+    color: #6f8f86 !important;
+    font-size: 0.75rem !important;
+}
+
+.ptDialogSecurityText {
+    color: #81908d !important;
+    font-size: 0.75rem !important;
+}
+
+/* Footer */
+
+.ptLoginDialog .sapMDialogFooter {
+    min-height: 4rem !important;
+
+    border: none !important;
+    border-top: 1px solid #e4ebe8 !important;
+
+    border-radius: 0 0 1.5rem 1.5rem !important;
+
+    background: #ffffff !important;
+}
+
+.ptLoginDialog .sapMDialogFooter .sapMIBar,
+.ptLoginDialog .sapMDialogFooter .sapMBar {
+    width: 100% !important;
+    min-height: 4rem !important;
+    height: 4rem !important;
+
+    padding: 0 1.2rem !important;
+
+    border: none !important;
+    box-shadow: none !important;
+
+    background: #ffffff !important;
+}
+
+.ptLoginDialog .sapMDialogFooter .sapMBtnInner {
+    border: none !important;
+    border-radius: 0.7rem !important;
+
+    background: transparent !important;
+    color: #087f5b !important;
+
+    font-weight: 700 !important;
+}
+
+@media (max-width: 620px) {
+    .ptLoginDialog.sapMDialog {
+        width: calc(100vw - 1rem) !important;
+    }
+
+    .ptDialogCustomHeader.sapMTB {
+        padding: 1.2rem 1rem 1rem !important;
+    }
+
+    .ptDialogContent {
+        padding: 1.2rem 1rem 1.3rem !important;
+    }
+}
+/* =========================================================
+   DASHBOARD
+   ========================================================= */
+
+.dashboardScreen {
+    width: 100%;
+    min-height: 100vh;
+
+    background: #f6faf8;
+}
+
+.dashboardHeader {
+    width: 100%;
+    padding: 1rem 2rem;
+    box-sizing: border-box;
+
+    border-bottom: 1px solid rgba(15, 118, 110, 0.1);
+
+    background: #ffffff;
+}
+
+.dashboardBrand,
+.dashboardUserArea {
+    gap: 0.9rem;
+}
+
+.dashboardLogo {
+    width: 3rem;
+    height: 3rem;
+
+    border-radius: 0.9rem;
+
+    background: #e6f5ee;
+}
+
+.dashboardLogoIcon {
+    color: #087f5b;
+    font-size: 1.7rem;
+}
+
+.dashboardBrandTitle {
+    color: #174b3e !important;
+    font-size: 1.25rem !important;
+    font-weight: 800 !important;
+}
+
+.dashboardBrandSubtitle,
+.dashboardUserRole {
+    color: #71817d !important;
+    font-size: 0.78rem !important;
+}
+
+.dashboardUserName {
+    color: #174b3e !important;
+    font-weight: 700 !important;
+}
+
+.dashboardContent {
+    width: 100%;
+    max-width: 1160px;
+
+    margin: 0 auto;
+    padding: 3rem 2rem;
+    box-sizing: border-box;
+}
+
+.dashboardGreeting {
+    color: #087f5b !important;
+    font-weight: 700 !important;
+}
+
+.dashboardTitle {
+    margin-top: 0.45rem !important;
+
+    color: #174b3e !important;
+
+    font-size: 2.2rem !important;
+    font-weight: 850 !important;
+}
+
+.dashboardDescription {
+    margin-top: 0.65rem !important;
+
+    color: #71817d !important;
+}
+
+.dashboardCardGrid {
+    width: 100%;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.dashboardCard {
+    width: calc(33.333% - 0.67rem);
+    min-height: 13rem;
+    padding: 1.4rem;
+    box-sizing: border-box;
+
+    border: 1px solid rgba(15, 118, 110, 0.1);
+    border-radius: 1rem;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 12px 30px rgba(37, 68, 61, 0.07);
+}
+
+.dashboardPrimaryCard {
+    border-color: rgba(8, 127, 91, 0.26);
+
+    background:
+        linear-gradient(
+            145deg,
+            #f5fffa,
+            #ffffff
+        );
+}
+
+.dashboardCardIconBox {
+    width: 3rem;
+    height: 3rem;
+
+    border-radius: 0.85rem;
+
+    background: #e6f5ee;
+}
+
+.dashboardCardIcon {
+    color: #087f5b;
+    font-size: 1.5rem;
+}
+
+.dashboardCardTitle {
+    margin-top: 1rem !important;
+
+    color: #174b3e !important;
+
+    font-size: 1.05rem !important;
+    font-weight: 800 !important;
+}
+
+.dashboardCardText {
+    margin-top: 0.55rem !important;
+
+    color: #71817d !important;
+
+    font-size: 0.85rem !important;
+    line-height: 1.5 !important;
+}
+
+.dashboardCardButton {
+    margin-top: auto;
+}
+
+.dashboardCardButton .sapMBtnInner {
+    color: #087f5b !important;
+    font-weight: 700 !important;
+}
+
+.dashboardFooter {
+    display: block;
+    width: 100%;
+
+    padding: 1.5rem;
+    box-sizing: border-box;
+
+    color: #81908d !important;
+    text-align: center;
+}
+
+/* =========================================================
+   ANİMASYONLAR
+   ========================================================= */
+
+@keyframes welcomeReveal {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes featureReveal {
+    from {
+        opacity: 0;
+        transform: translateY(28px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
+    .welcomeContent {
+        padding: 3rem 1.2rem 1.5rem;
+    }
+
+    .brandTitle {
+        font-size: 3.6rem !important;
+    }
+
+    .featureCard,
+    .dashboardCard {
+        width: calc(50% - 0.5rem);
+    }
+}
+
+@media (max-width: 620px) {
+    .welcomeContent {
+        padding: 2rem 0.8rem 1.2rem;
+    }
+
+    .logoBox {
+        width: 4.2rem;
+        height: 4.2rem;
+
+        border-radius: 1.2rem;
+    }
+
+    .logoCross {
+        font-size: 2.3rem;
+    }
+
+    .brandTitle {
+        font-size: 2.55rem !important;
+    }
+
+    .brandSubtitle {
+        font-size: 1.05rem !important;
+    }
+
+    .brandDescription {
+        padding: 0 0.5rem;
+        font-size: 0.9rem !important;
+    }
+
+    .welcomeLoginButton .sapMBtnInner {
+        min-width: 14rem !important;
+        height: 3.5rem !important;
+        font-size: 1.05rem !important;
+    }
+
+    .featureArea {
+        margin-top: 2rem;
+    }
+
+    .featureCard,
+    .dashboardCard {
+        width: 100%;
+    }
+
+    .securityLockBox {
+        display: none;
+    }
+
+    .securityBannerText {
+        max-width: 245px;
+    }
+
+    .dataSourceText {
+        max-width: 290px;
+        text-align: center;
+    }
+
+    .dashboardHeader,
+    .dashboardContent {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .dashboardTitle {
+        font-size: 1.7rem !important;
+    }
+
+    .ptDialogContent {
+        padding: 0.5rem 1rem 1rem !important;
+    }
+    /* =========================================================
+   YÖNETİCİ ANA PANELİ
+   ========================================================= */
+
+.adminDashboardContent {
+    width: 100% !important;
+    max-width: 1160px !important;
+
+    margin: 0 auto !important;
+    padding: 3rem 2rem !important;
+    box-sizing: border-box !important;
+}
+
+.adminMainCardGrid {
+    margin-top: 2rem !important;
+}
+
+.adminMainCardGrid .dashboardCard {
+    min-height: 14rem !important;
+
+    border-color: rgba(8, 127, 91, 0.12) !important;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #f8fffb
+        ) !important;
+}
+
+.adminMainCardGrid .dashboardPrimaryCard {
+    border-color: rgba(8, 127, 91, 0.3) !important;
+
+    background:
+        linear-gradient(
+            145deg,
+            #f0fff8,
+            #ffffff
+        ) !important;
+}
+
+@media (max-width: 900px) {
+    .adminMainCardGrid .dashboardCard {
+        width: calc(50% - 0.5rem) !important;
+    }
+}
+
+@media (max-width: 620px) {
+    .adminDashboardContent {
+        padding: 2rem 1rem !important;
+    }
+
+    .adminMainCardGrid .dashboardCard {
+        width: 100% !important;
+    }
+}
+/* =========================================================
+   YÖNETİCİ PANELİ — 4 ANA MODÜL
+   ========================================================= */
+
+.adminMainCardGrid {
+    width: 100% !important;
+    gap: 1.25rem !important;
+    margin-top: 2rem !important;
+}
+
+.adminMainCardGrid .dashboardCard {
+    width: calc(50% - 0.625rem) !important;
+    min-height: 14rem !important;
+
+    border: 1px solid rgba(8, 127, 91, 0.12) !important;
+    border-radius: 1.1rem !important;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #f8fffb
+        ) !important;
+
+    box-shadow:
+        0 14px 34px rgba(37, 68, 61, 0.08) !important;
+}
+
+.adminMainCardGrid .dashboardPrimaryCard {
+    border-color: rgba(8, 127, 91, 0.3) !important;
+
+    background:
+        linear-gradient(
+            145deg,
+            #f0fff8,
+            #ffffff
+        ) !important;
+}
+
+@media (max-width: 760px) {
+    .adminMainCardGrid .dashboardCard {
+        width: 100% !important;
+    }
+}
+/* =========================================================
+   ŞUBELER EKRANI
+   ========================================================= */
+
+.branchesPage {
+    background: #f5faf7 !important;
+}
+
+.branchesPage .sapMPageBgStandard,
+.branchesPage .sapMPageEnableScrolling {
+    background: #f5faf7 !important;
+}
+
+/* Sayfanın ana alanı */
+
+.branchesScreen {
+    width: 100% !important;
+    max-width: 1180px !important;
+    min-height: calc(100vh - 4rem) !important;
+
+    margin: 0 auto !important;
+    padding: 3rem 2rem 4rem !important;
+    box-sizing: border-box !important;
+}
+
+/* Üst başlık alanı */
+
+.branchesHeader {
+    width: 100% !important;
+    margin-bottom: 2.2rem !important;
+}
+
+.branchesEyebrow {
+    display: block !important;
+
+    color: #087f5b !important;
+
+    font-size: 0.88rem !important;
+    font-weight: 700 !important;
+    line-height: 1.4 !important;
+}
+
+.branchesTitle {
+    margin: 0.35rem 0 0 !important;
+
+    color: #174b3e !important;
+
+    font-size: 2.6rem !important;
+    font-weight: 850 !important;
+    line-height: 1.15 !important;
+}
+
+.branchesDescription {
+    display: block !important;
+
+    max-width: 700px !important;
+    margin-top: 0.75rem !important;
+
+    color: #6d7f7a !important;
+
+    font-size: 1rem !important;
+    line-height: 1.55 !important;
+}
+
+/* Üç şube kartının yerleşimi */
+
+.branchesCardGrid {
+    width: 100% !important;
+
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+
+    gap: 1.25rem !important;
+    margin-top: 0 !important;
+}
+
+/* Şube kartı */
+
+.branchDetailCard {
+    width: calc(33.333% - 0.84rem) !important;
+    min-height: 24rem !important;
+
+    padding: 1.5rem !important;
+    box-sizing: border-box !important;
+
+    border: 1px solid rgba(8, 127, 91, 0.14) !important;
+    border-radius: 1.15rem !important;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff 0%,
+            #f8fffb 100%
+        ) !important;
+
+    box-shadow:
+        0 14px 34px rgba(37, 68, 61, 0.08) !important;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease !important;
+}
+
+.branchDetailCard:hover {
+    transform: translateY(-5px) !important;
+
+    border-color: rgba(8, 127, 91, 0.3) !important;
+
+    box-shadow:
+        0 22px 46px rgba(37, 68, 61, 0.14) !important;
+}
+
+/* Kart üst kısmı */
+
+.branchCardTop {
+    width: 100% !important;
+    margin-bottom: 1.35rem !important;
+}
+
+.branchNameArea {
+    gap: 0.9rem !important;
+}
+
+.branchCardIconBox {
+    width: 3.5rem !important;
+    height: 3.5rem !important;
+    min-width: 3.5rem !important;
+
+    border-radius: 1rem !important;
+
+    background:
+        linear-gradient(
+            145deg,
+            #dff4ea,
+            #eefaf5
+        ) !important;
+}
+
+.branchCardIcon {
+    color: #087f5b !important;
+    font-size: 1.7rem !important;
+}
+
+.branchCardTitle {
+    margin: 0 !important;
+
+    color: #174b3e !important;
+
+    font-size: 1.25rem !important;
+    font-weight: 800 !important;
+    line-height: 1.25 !important;
+}
+
+.branchCardSubtitle {
+    display: block !important;
+
+    margin-top: 0.2rem !important;
+
+    color: #788985 !important;
+
+    font-size: 0.78rem !important;
+}
+
+/* Aktif durumu */
+
+.branchDetailCard .sapMObjStatus {
+    padding: 0.35rem 0.7rem !important;
+
+    border-radius: 999px !important;
+
+    background: #e6f7ee !important;
+}
+
+.branchDetailCard .sapMObjStatusText {
+    color: #087f5b !important;
+    font-size: 0.75rem !important;
+    font-weight: 700 !important;
+}
+
+/* İstatistik kutuları */
+
+.branchStatsGrid {
+    width: 100% !important;
+
+    display: flex !important;
+    flex-wrap: wrap !important;
+
+    gap: 0.8rem !important;
+    margin-top: 0 !important;
+}
+
+.branchStatItem {
+    width: calc(50% - 0.4rem) !important;
+    min-height: 5.3rem !important;
+
+    padding: 0.95rem !important;
+    box-sizing: border-box !important;
+
+    border: 1px solid #edf3f0 !important;
+    border-radius: 0.85rem !important;
+
+    background: #f7fbf9 !important;
+}
+
+.branchStatLabel {
+    display: block !important;
+
+    color: #748580 !important;
+
+    font-size: 0.74rem !important;
+    line-height: 1.3 !important;
+}
+
+.branchStatValue,
+.branchStatDanger,
+.branchStatWarning {
+    display: block !important;
+
+    margin-top: 0.35rem !important;
+
+    font-size: 1.22rem !important;
+    font-weight: 800 !important;
+    line-height: 1.2 !important;
+}
+
+.branchStatValue {
+    color: #174b3e !important;
+}
+
+.branchStatDanger {
+    color: #c92a2a !important;
+}
+
+.branchStatWarning {
+    color: #b26a00 !important;
+}
+
+/* Şubeyi Aç butonu */
+
+.branchOpenButton {
+    width: 100% !important;
+
+    margin-top: auto !important;
+    padding-top: 1.4rem !important;
+}
+
+.branchOpenButton .sapMBtnInner {
+    width: 100% !important;
+    height: 3rem !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    border: none !important;
+    border-radius: 0.8rem !important;
+
+    background:
+        linear-gradient(
+            90deg,
+            #087f5b,
+            #079b6d
+        ) !important;
+
+    color: #ffffff !important;
+
+    font-size: 0.92rem !important;
+    font-weight: 750 !important;
+
+    box-shadow:
+        0 10px 22px rgba(8, 127, 91, 0.2) !important;
+}
+
+.branchOpenButton .sapMBtnContent,
+.branchOpenButton .sapMBtnIcon {
+    color: #ffffff !important;
+}
+
+.branchOpenButton:hover .sapMBtnInner {
+    filter: brightness(0.96);
+}
+
+/* Üst geri butonu ve başlık */
+
+.branchesPage .sapMBar {
+    background: #ffffff !important;
+    box-shadow: 0 1px 0 rgba(23, 75, 62, 0.08) !important;
+}
+
+.branchesPage .sapMTitle {
+    color: #174b3e;
+}
+
+/* Tablet */
+
+@media (max-width: 1000px) {
+    .branchDetailCard {
+        width: calc(50% - 0.625rem) !important;
+    }
+}
+
+/* Telefon */
+
+@media (max-width: 680px) {
+    .branchesScreen {
+        padding: 2rem 1rem 3rem !important;
+    }
+
+    .branchesTitle {
+        font-size: 2.05rem !important;
+    }
+
+    .branchesDescription {
+        font-size: 0.9rem !important;
+    }
+
+    .branchDetailCard {
+        width: 100% !important;
+        min-height: 22rem !important;
+    }
+}
+}

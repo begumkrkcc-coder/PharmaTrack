@@ -1,0 +1,440 @@
+<mvc:View
+    controllerName="pharmatrack.login.controller.SalesHistory"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m"
+    displayBlock="true">
+
+    <Page
+        id="salesHistoryPage"
+        showHeader="false"
+        busy="{history>/busy}"
+        class="salesPage">
+
+        <content>
+            <VBox class="salesShell">
+
+                <!-- ÜST BAR -->
+                <HBox
+                    class="posHeader"
+                    alignItems="Center"
+                    justifyContent="SpaceBetween">
+
+                    <HBox
+                        alignItems="Center"
+                        class="posHeaderLeft">
+
+                        <Button
+                            icon="sap-icon://nav-back"
+                            type="Transparent"
+                            tooltip="Satış ekranına dön"
+                            press=".onBack"
+                            class="posBackButton"/>
+
+                        <HBox
+                            class="posLogo"
+                            alignItems="Center"
+                            justifyContent="Center">
+
+                            <core:Icon
+                                src="sap-icon://sales-order"
+                                class="posLogoIcon"/>
+                        </HBox>
+
+                        <VBox>
+                            <Title
+                                text="Satış Geçmişi"
+                                level="H1"
+                                class="posHeaderTitle"/>
+
+                            <Text
+                                text="Tamamlanan satışları ve faturaları görüntüleyin"
+                                class="posHeaderSubtitle"/>
+                        </VBox>
+                    </HBox>
+
+                    <HBox
+                        class="posUser"
+                        alignItems="Center">
+
+                        <HBox
+                            class="posUserIconBox"
+                            alignItems="Center"
+                            justifyContent="Center">
+
+                            <core:Icon
+                                src="sap-icon://employee"
+                                class="posUserIcon"/>
+                        </HBox>
+
+                        <VBox>
+                            <Text
+                                id="historyUserName"
+                                text="Kullanıcı"
+                                class="posUserName"/>
+
+                            <Text
+                                id="historyUserRole"
+                                text="Rol"
+                                class="posUserRole"/>
+                        </VBox>
+                    </HBox>
+                </HBox>
+
+                <!-- FİLTRELER -->
+                <VBox class="posCard">
+
+                    <HBox
+                        alignItems="Center"
+                        justifyContent="SpaceBetween"
+                        class="posCardHeader">
+
+                        <HBox alignItems="Center">
+                            <HBox
+                                class="posStep"
+                                alignItems="Center"
+                                justifyContent="Center">
+
+                                <core:Icon src="sap-icon://filter"/>
+                            </HBox>
+
+                            <VBox>
+                                <Title
+                                    text="Satışları Filtrele"
+                                    level="H2"
+                                    class="posCardTitle"/>
+
+                                <Text
+                                    text="Satış numarası, müşteri, tür veya tarih bilgisine göre arama yapın."
+                                    class="posCardDescription"/>
+                            </VBox>
+                        </HBox>
+
+                        <Button
+                            text="Yenile"
+                            icon="sap-icon://refresh"
+                            type="Transparent"
+                            press=".onRefresh"/>
+                    </HBox>
+
+                    <HBox
+                        wrap="Wrap"
+                        alignItems="End"
+                        class="posBarcodeRow">
+
+                        <VBox class="posField">
+                            <Label
+                                text="Satış veya müşteri ara"
+                                labelFor="salesSearchInput"
+                                class="posLabel"/>
+
+                            <SearchField
+                                id="salesSearchInput"
+                                placeholder="Satış no, müşteri veya reçete no"
+                                liveChange=".onFilterChange"
+                                search=".onFilterChange"
+                                width="100%"/>
+                        </VBox>
+
+                        <VBox class="posField">
+                            <Label
+                                text="Satış Türü"
+                                labelFor="saleTypeFilter"
+                                class="posLabel"/>
+
+                            <Select
+                                id="saleTypeFilter"
+                                selectedKey="ALL"
+                                change=".onFilterChange"
+                                width="100%">
+
+                                <core:Item
+                                    key="ALL"
+                                    text="Tüm Satışlar"/>
+
+                                <core:Item
+                                    key="PRESCRIPTION"
+                                    text="Reçeteli Satış"/>
+
+                                <core:Item
+                                    key="NON_PRESCRIPTION"
+                                    text="Reçetesiz Satış"/>
+                            </Select>
+                        </VBox>
+
+                        <VBox class="posField">
+                            <Label
+                                text="Başlangıç Tarihi"
+                                labelFor="startDatePicker"
+                                class="posLabel"/>
+
+                            <DatePicker
+                                id="startDatePicker"
+                                valueFormat="yyyy-MM-dd"
+                                displayFormat="dd.MM.yyyy"
+                                change=".onFilterChange"
+                                width="100%"/>
+                        </VBox>
+
+                        <VBox class="posField">
+                            <Label
+                                text="Bitiş Tarihi"
+                                labelFor="endDatePicker"
+                                class="posLabel"/>
+
+                            <DatePicker
+                                id="endDatePicker"
+                                valueFormat="yyyy-MM-dd"
+                                displayFormat="dd.MM.yyyy"
+                                change=".onFilterChange"
+                                width="100%"/>
+                        </VBox>
+
+                        <Button
+                            text="Filtreleri Temizle"
+                            icon="sap-icon://clear-filter"
+                            type="Transparent"
+                            press=".onClearFilters"/>
+                    </HBox>
+                </VBox>
+
+                <!-- ÖZET KARTLARI -->
+                <HBox
+                    wrap="Wrap"
+                    class="posContent">
+
+                    <VBox class="posCard">
+                        <HBox alignItems="Center">
+                            <HBox
+                                class="summaryIconBox"
+                                alignItems="Center"
+                                justifyContent="Center">
+
+                                <core:Icon
+                                    src="sap-icon://sales-order"
+                                    class="summaryIcon"/>
+                            </HBox>
+
+                            <VBox>
+                                <Text
+                                    text="Toplam Satış"
+                                    class="summarySubtitle"/>
+
+                                <ObjectNumber
+                                    number="{history>/summary/salesCount}"
+                                    emphasized="true"/>
+                            </VBox>
+                        </HBox>
+                    </VBox>
+
+                    <VBox class="posCard">
+                        <HBox alignItems="Center">
+                            <HBox
+                                class="summaryIconBox"
+                                alignItems="Center"
+                                justifyContent="Center">
+
+                                <core:Icon
+                                    src="sap-icon://product"
+                                    class="summaryIcon"/>
+                            </HBox>
+
+                            <VBox>
+                                <Text
+                                    text="Satılan Ürün"
+                                    class="summarySubtitle"/>
+
+                                <ObjectNumber
+                                    number="{history>/summary/totalQuantity}"
+                                    emphasized="true"/>
+                            </VBox>
+                        </HBox>
+                    </VBox>
+
+                    <VBox class="posCard">
+                        <HBox alignItems="Center">
+                            <HBox
+                                class="summaryIconBox"
+                                alignItems="Center"
+                                justifyContent="Center">
+
+                                <core:Icon
+                                    src="sap-icon://money-bills"
+                                    class="summaryIcon"/>
+                            </HBox>
+
+                            <VBox>
+                                <Text
+                                    text="Toplam Ciro"
+                                    class="summarySubtitle"/>
+
+                                <ObjectNumber
+                                    number="{
+                                        path: 'history>/summary/totalRevenue',
+                                        formatter: '.formatCurrency'
+                                    }"
+                                    unit="₺"
+                                    emphasized="true"/>
+                            </VBox>
+                        </HBox>
+                    </VBox>
+
+                    <VBox class="posCard">
+                        <HBox alignItems="Center">
+                            <HBox
+                                class="summaryIconBox"
+                                alignItems="Center"
+                                justifyContent="Center">
+
+                                <core:Icon
+                                    src="sap-icon://shield"
+                                    class="summaryIcon"/>
+                            </HBox>
+
+                            <VBox>
+                                <Text
+                                    text="SGK Karşılanan"
+                                    class="summarySubtitle"/>
+
+                                <ObjectNumber
+                                    number="{
+                                        path: 'history>/summary/insuranceCovered',
+                                        formatter: '.formatCurrency'
+                                    }"
+                                    unit="₺"
+                                    emphasized="true"/>
+                            </VBox>
+                        </HBox>
+                    </VBox>
+                </HBox>
+
+                <!-- SATIŞ TABLOSU -->
+                <VBox class="posCard posCartCard">
+
+                    <HBox
+                        alignItems="Center"
+                        justifyContent="SpaceBetween"
+                        class="posCartHeader">
+
+                        <VBox>
+                            <Title
+                                text="Tamamlanan Satışlar"
+                                level="H2"
+                                class="posCardTitle"/>
+
+                            <Text
+                                text="{history>/resultText}"
+                                class="posCardDescription"/>
+                        </VBox>
+
+                        <ObjectStatus
+                            text="Canlı Veriler"
+                            state="Success"
+                            icon="sap-icon://connected"/>
+                    </HBox>
+
+                    <Table
+                        id="salesHistoryTable"
+                        items="{history>/filteredSales}"
+                        noDataText="{history>/emptyText}"
+                        growing="true"
+                        growingThreshold="15"
+                        growingScrollToLoad="true"
+                        inset="false"
+                        class="posCartTable">
+
+                        <columns>
+                            <Column width="13%">
+                                <Text text="Satış No"/>
+                            </Column>
+
+                            <Column width="14%">
+                                <Text text="Tarih"/>
+                            </Column>
+
+                            <Column width="14%">
+                                <Text text="Satış Türü"/>
+                            </Column>
+
+                            <Column width="20%">
+                                <Text text="Müşteri"/>
+                            </Column>
+
+                            <Column width="10%" hAlign="Center">
+                                <Text text="Ürün"/>
+                            </Column>
+
+                            <Column width="13%" hAlign="End">
+                                <Text text="Ödenen Tutar"/>
+                            </Column>
+
+                            <Column width="10%" hAlign="Center">
+                                <Text text="Durum"/>
+                            </Column>
+
+                            <Column width="6%" hAlign="Center">
+                                <Text text="Fatura"/>
+                            </Column>
+                        </columns>
+
+                        <items>
+                            <ColumnListItem
+                                vAlign="Middle"
+                                type="Active"
+                                press=".onOpenInvoice">
+
+                                <cells>
+                                    <ObjectIdentifier
+                                        title="{history>saleNumber}"
+                                        text="{history>prescriptionDisplay}"/>
+
+                                    <Text
+                                        text="{
+                                            path: 'history>saleDate',
+                                            formatter: '.formatDateTime'
+                                        }"/>
+
+                                    <ObjectStatus
+                                        text="{history>saleTypeText}"
+                                        state="{history>saleTypeState}"/>
+
+                                    <VBox>
+                                        <Text
+                                            text="{history>customerName}"
+                                            class="medicineName"/>
+
+                                        <Text
+                                            text="{history>customerNationalId}"
+                                            class="medicineManufacturer"/>
+                                    </VBox>
+
+                                    <ObjectNumber
+                                        number="{history>totalQuantity}"
+                                        unit="adet"/>
+
+                                    <ObjectNumber
+                                        number="{
+                                            path: 'history>patientPayableAmount',
+                                            formatter: '.formatCurrency'
+                                        }"
+                                        unit="₺"
+                                        emphasized="true"/>
+
+                                    <ObjectStatus
+                                        text="{history>statusText}"
+                                        state="{history>statusState}"/>
+
+                                    <Button
+                                        icon="sap-icon://receipt"
+                                        type="Transparent"
+                                        tooltip="Faturayı görüntüle"
+                                        press=".onOpenInvoice"/>
+                                </cells>
+                            </ColumnListItem>
+                        </items>
+                    </Table>
+                </VBox>
+            </VBox>
+        </content>
+    </Page>
+</mvc:View>

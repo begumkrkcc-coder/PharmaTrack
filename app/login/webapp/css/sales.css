@@ -1,0 +1,730 @@
+/* =========================================================
+   PHARMATRACK — SATIŞ TERMINALİ
+   ========================================================= */
+
+.salesPage,
+.salesPage .sapMPageBgStandard,
+.salesPage .sapMPageEnableScrolling,
+.salesPage .sapMPageScroll,
+.salesPage section {
+    background: #f4faf7 !important;
+}
+
+.salesShell {
+    width: 100% !important;
+    min-height: 100vh !important;
+    box-sizing: border-box !important;
+}
+
+/* =========================================================
+   ÜST BAR
+   ========================================================= */
+
+.posHeader {
+    width: 100% !important;
+    min-height: 6rem !important;
+
+    padding: 1.25rem 2.5rem !important;
+    box-sizing: border-box !important;
+
+    border-bottom: 1px solid rgba(8, 127, 91, 0.1) !important;
+
+    background: #ffffff !important;
+
+    box-shadow:
+        0 6px 22px rgba(37, 68, 61, 0.06) !important;
+}
+
+.posHeaderLeft {
+    gap: 0.85rem !important;
+}
+
+.posBackButton .sapMBtnInner {
+    width: 2.8rem !important;
+    height: 2.8rem !important;
+
+    border: 1px solid rgba(8, 127, 91, 0.22) !important;
+    border-radius: 0.75rem !important;
+
+    background: #ffffff !important;
+}
+
+.posBackButton .sapMBtnIcon {
+    color: #087f5b !important;
+    font-size: 1rem !important;
+}
+
+.posLogo {
+    width: 3rem !important;
+    height: 3rem !important;
+
+    border-radius: 0.85rem !important;
+
+    background:
+        linear-gradient(
+            145deg,
+            #087f5b,
+            #0ca678
+        ) !important;
+
+    box-shadow:
+        0 10px 24px rgba(8, 127, 91, 0.2) !important;
+}
+
+.posLogoIcon {
+    color: #ffffff !important;
+    font-size: 1.35rem !important;
+}
+
+.posHeaderTitle {
+    color: #174b3e !important;
+
+    font-size: 1.25rem !important;
+    font-weight: 850 !important;
+}
+
+.posHeaderSubtitle {
+    display: block !important;
+
+    margin-top: 0.15rem !important;
+
+    color: #758681 !important;
+
+    font-size: 0.75rem !important;
+}
+
+.posUser {
+    gap: 0.65rem !important;
+}
+
+.posUserIconBox {
+    width: 2.7rem !important;
+    height: 2.7rem !important;
+
+    border-radius: 50% !important;
+
+    background: #e5f5ee !important;
+}
+
+.posUserIcon {
+    color: #087f5b !important;
+    font-size: 1.1rem !important;
+}
+
+.posUserName {
+    color: #174b3e !important;
+
+    font-size: 0.82rem !important;
+    font-weight: 800 !important;
+}
+
+.posUserRole {
+    color: #087f5b !important;
+
+    font-size: 0.7rem !important;
+    font-weight: 650 !important;
+}
+
+/* Satış geçmişi */
+
+.posHeader .sapMBtnTransparent .sapMBtnContent,
+.posHeader .sapMBtnTransparent .sapMBtnIcon {
+    color: #087f5b !important;
+    font-weight: 750 !important;
+}
+
+/* =========================================================
+   ANA İÇERİK
+   ========================================================= */
+
+.posContent {
+    width: 100% !important;
+    max-width: 1280px !important;
+
+    margin: 0 auto !important;
+    padding: 2rem 2rem 4rem !important;
+    box-sizing: border-box !important;
+
+    gap: 1.25rem !important;
+}
+
+.posMainColumn {
+    width: calc(100% - 22rem) !important;
+    gap: 1rem !important;
+}
+
+.posSummaryColumn {
+    width: 20.5rem !important;
+    gap: 1rem !important;
+}
+
+/* =========================================================
+   ORTAK KART YAPISI
+   ========================================================= */
+
+.posCard,
+.posSummaryCard,
+.posHelpCard {
+    width: 100% !important;
+
+    padding: 1.35rem !important;
+    box-sizing: border-box !important;
+
+    border: 1px solid rgba(8, 127, 91, 0.13) !important;
+    border-radius: 1rem !important;
+
+    background: #ffffff !important;
+
+    box-shadow:
+        0 12px 30px rgba(37, 68, 61, 0.07) !important;
+}
+
+.posCardHeader,
+.posCartHeader {
+    width: 100% !important;
+}
+
+.posStep {
+    width: 2.5rem !important;
+    height: 2.5rem !important;
+    min-width: 2.5rem !important;
+
+    margin-right: 0.85rem !important;
+
+    border-radius: 0.75rem !important;
+
+    background: #e5f5ee !important;
+}
+
+.posStep .sapMText {
+    color: #174b3e !important;
+
+    font-size: 0.85rem !important;
+    font-weight: 850 !important;
+}
+
+.posCardTitle {
+    color: #174b3e !important;
+
+    font-size: 1rem !important;
+    font-weight: 850 !important;
+}
+
+.posCardDescription {
+    display: block !important;
+
+    margin-top: 0.2rem !important;
+
+    color: #758681 !important;
+
+    font-size: 0.75rem !important;
+}
+
+/* =========================================================
+   SATIŞ TÜRÜ
+   ========================================================= */
+
+.saleTypeCard {
+    min-height: 8.5rem !important;
+}
+
+.posSaleType {
+    width: 100% !important;
+
+    gap: 0.75rem !important;
+    margin-top: 1rem !important;
+}
+
+.posSaleType .sapMBtn {
+    flex: 1 1 14rem !important;
+}
+
+.posSaleType .sapMBtnInner {
+    min-height: 2.9rem !important;
+
+    border: 1px solid rgba(8, 127, 91, 0.25) !important;
+    border-radius: 0.75rem !important;
+
+    background: #f8fcfa !important;
+}
+
+.posSaleType .sapMBtnContent,
+.posSaleType .sapMBtnIcon {
+    color: #087f5b !important;
+    font-weight: 800 !important;
+}
+
+.posSaleType .sapMBtnEmphasized .sapMBtnInner,
+.posSaleType .sapMBtnEmphasized {
+    background:
+        linear-gradient(
+            135deg,
+            #087f5b,
+            #0ca678
+        ) !important;
+}
+
+.posSaleType .sapMBtnEmphasized .sapMBtnContent,
+.posSaleType .sapMBtnEmphasized .sapMBtnIcon {
+    color: #ffffff !important;
+}
+
+.posPrescriptionArea {
+    width: 100% !important;
+
+    margin-top: 1rem !important;
+    padding: 1rem !important;
+    box-sizing: border-box !important;
+
+    border-radius: 0.85rem !important;
+
+    background: #f6fbf8 !important;
+}
+
+.posPrescriptionFields {
+    width: 100% !important;
+    gap: 0.8rem !important;
+}
+
+.posField {
+    min-width: 13rem !important;
+    flex: 1 1 13rem !important;
+}
+
+.posPrescriptionButton {
+    align-self: flex-end !important;
+}
+
+/* =========================================================
+   BARKOD
+   ========================================================= */
+
+.barcodeCard {
+    min-height: 9rem !important;
+}
+
+.scannerStatus {
+    padding: 0.35rem 0.75rem !important;
+
+    border-radius: 999px !important;
+
+    background: #e8f7ef !important;
+}
+
+.scannerStatus .sapMObjStatusText,
+.scannerStatus .sapMObjStatusIcon {
+    color: #087f5b !important;
+
+    font-size: 0.72rem !important;
+    font-weight: 750 !important;
+}
+
+.posBarcodeRow {
+    width: 100% !important;
+
+    gap: 0.65rem !important;
+    margin-top: 1rem !important;
+}
+
+.posBarcodeInputArea {
+    flex: 1 1 22rem !important;
+}
+
+.posLabel {
+    color: #526862 !important;
+
+    font-size: 0.72rem !important;
+    font-weight: 750 !important;
+}
+
+.posBarcodeInput .sapMInputBaseContentWrapper,
+.posInput .sapMInputBaseContentWrapper {
+    min-height: 2.8rem !important;
+
+    border: 1px solid rgba(8, 127, 91, 0.2) !important;
+    border-radius: 0.75rem !important;
+
+    background: #fbfefd !important;
+}
+
+.posBarcodeInput .sapMInputBaseInner,
+.posInput .sapMInputBaseInner {
+    color: #174b3e !important;
+    font-size: 0.85rem !important;
+}
+
+.posScanButton .sapMBtnInner {
+    min-height: 2.8rem !important;
+
+    border: none !important;
+    border-radius: 0.75rem !important;
+
+    background:
+        linear-gradient(
+            135deg,
+            #087f5b,
+            #0ca678
+        ) !important;
+}
+
+.posScanButton .sapMBtnContent,
+.posScanButton .sapMBtnIcon {
+    color: #ffffff !important;
+    font-weight: 800 !important;
+}
+
+.posAddButton .sapMBtnInner {
+    min-height: 2.8rem !important;
+
+    border: 1px solid rgba(8, 127, 91, 0.3) !important;
+    border-radius: 0.75rem !important;
+
+    background: #ffffff !important;
+}
+
+.posAddButton .sapMBtnContent,
+.posAddButton .sapMBtnIcon {
+    color: #087f5b !important;
+    font-weight: 800 !important;
+}
+
+.posMessage {
+    margin-top: 0.8rem !important;
+}
+
+/* =========================================================
+   SEPET
+   ========================================================= */
+
+.posCartCard {
+    min-height: 14rem !important;
+}
+
+.posClearButton .sapMBtnContent,
+.posClearButton .sapMBtnIcon {
+    color: #c92a2a !important;
+    font-weight: 750 !important;
+}
+
+.posCartTable {
+    width: 100% !important;
+
+    margin-top: 1rem !important;
+
+    border: 1px solid #e8f1ed !important;
+    border-radius: 0.8rem !important;
+
+    overflow: hidden !important;
+}
+
+.posCartTable .sapMListTblHeaderCell {
+    background: #f2f8f5 !important;
+}
+
+.posCartTable .sapMListTblHeaderCell .sapMText {
+    color: #405b54 !important;
+
+    font-size: 0.72rem !important;
+    font-weight: 800 !important;
+}
+
+.posCartTable .sapMListTblCell {
+    border-color: #edf3f0 !important;
+}
+
+.medicineCell {
+    gap: 0.65rem !important;
+}
+
+.medicineIconBox {
+    width: 2.4rem !important;
+    height: 2.4rem !important;
+    min-width: 2.4rem !important;
+
+    border-radius: 0.7rem !important;
+
+    background: #e5f5ee !important;
+}
+
+.medicineIcon {
+    color: #087f5b !important;
+}
+
+.medicineName {
+    color: #174b3e !important;
+
+    font-size: 0.8rem !important;
+    font-weight: 800 !important;
+}
+
+.medicineManufacturer,
+.medicineBarcode {
+    color: #758681 !important;
+    font-size: 0.7rem !important;
+}
+
+.posQuantity {
+    gap: 0.25rem !important;
+}
+
+.posQuantityButton .sapMBtnInner {
+    min-width: 2rem !important;
+    height: 2rem !important;
+
+    border-radius: 0.55rem !important;
+
+    background: #f2f8f5 !important;
+}
+
+.posQuantityButton .sapMBtnIcon {
+    color: #087f5b !important;
+}
+
+.posQuantityText {
+    min-width: 1.5rem !important;
+
+    color: #174b3e !important;
+
+    font-size: 0.8rem !important;
+    font-weight: 800 !important;
+    text-align: center !important;
+}
+
+.posPrice .sapMObjectNumberText,
+.posPrice .sapMObjectNumberUnit,
+.posLineTotal .sapMObjectNumberText,
+.posLineTotal .sapMObjectNumberUnit {
+    color: #174b3e !important;
+    font-weight: 800 !important;
+}
+
+.posRemoveButton .sapMBtnIcon {
+    color: #c92a2a !important;
+}
+
+/* =========================================================
+   SATIŞ ÖZETİ
+   ========================================================= */
+
+.posSummaryCard {
+    position: sticky !important;
+    top: 1rem !important;
+}
+
+.summaryTitleArea {
+    gap: 0.75rem !important;
+}
+
+.summaryIconBox {
+    width: 3rem !important;
+    height: 3rem !important;
+
+    border-radius: 0.85rem !important;
+
+    background: #e5f5ee !important;
+}
+
+.summaryIcon {
+    color: #087f5b !important;
+    font-size: 1.25rem !important;
+}
+
+.summaryTitle {
+    color: #174b3e !important;
+
+    font-size: 1rem !important;
+    font-weight: 850 !important;
+}
+
+.summarySubtitle {
+    display: block !important;
+
+    margin-top: 0.15rem !important;
+
+    color: #758681 !important;
+    font-size: 0.7rem !important;
+}
+
+.summaryDetails {
+    width: 100% !important;
+
+    margin-top: 1.2rem !important;
+    padding: 1rem 0 !important;
+
+    border-top: 1px solid #e8f1ed !important;
+    border-bottom: 1px solid #e8f1ed !important;
+
+    gap: 0.7rem !important;
+}
+
+.summaryLine {
+    width: 100% !important;
+}
+
+.summaryLine .sapMText {
+    color: #526862 !important;
+    font-size: 0.76rem !important;
+}
+
+.summaryLine .sapMObjectNumberText,
+.summaryLine .sapMObjectNumberUnit {
+    color: #174b3e !important;
+
+    font-size: 0.8rem !important;
+    font-weight: 800 !important;
+}
+
+.summaryGrandTotal {
+    width: 100% !important;
+
+    margin-top: 1rem !important;
+}
+
+.summaryGrandTotalLabel {
+    color: #174b3e !important;
+
+    font-size: 0.86rem !important;
+    font-weight: 850 !important;
+}
+
+.summaryGrandTotalValue .sapMObjectNumberText {
+    color: #087f5b !important;
+
+    font-size: 1.55rem !important;
+    font-weight: 900 !important;
+}
+
+.summaryGrandTotalValue .sapMObjectNumberUnit {
+    color: #087f5b !important;
+    font-weight: 850 !important;
+}
+
+.posPaymentButton {
+    margin-top: 1rem !important;
+}
+
+.posPaymentButton .sapMBtnInner {
+    min-height: 3rem !important;
+
+    border: none !important;
+    border-radius: 0.8rem !important;
+
+    background:
+        linear-gradient(
+            135deg,
+            #087f5b,
+            #0ca678
+        ) !important;
+
+    box-shadow:
+        0 10px 24px rgba(8, 127, 91, 0.2) !important;
+}
+
+.posPaymentButton .sapMBtnContent,
+.posPaymentButton .sapMBtnIcon {
+    color: #ffffff !important;
+    font-weight: 850 !important;
+}
+
+.posPaymentButton.sapMBtnDisabled .sapMBtnInner {
+    opacity: 0.45 !important;
+    box-shadow: none !important;
+}
+
+.summarySecurity {
+    width: 100% !important;
+
+    margin-top: 0.7rem !important;
+
+    gap: 0.35rem !important;
+}
+
+.summarySecurityIcon,
+.summarySecurityText {
+    color: #758681 !important;
+    font-size: 0.68rem !important;
+}
+
+/* =========================================================
+   HIZLI KULLANIM
+   ========================================================= */
+
+.posHelpCard {
+    padding: 1.1rem !important;
+}
+
+.helpIcon {
+    color: #087f5b !important;
+    margin-right: 0.5rem !important;
+}
+
+.helpTitle {
+    color: #174b3e !important;
+
+    font-size: 0.9rem !important;
+    font-weight: 850 !important;
+}
+
+.helpText {
+    display: block !important;
+
+    margin-top: 0.65rem !important;
+
+    color: #71817d !important;
+
+    font-size: 0.74rem !important;
+    line-height: 1.55 !important;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1050px) {
+    .posMainColumn,
+    .posSummaryColumn {
+        width: 100% !important;
+    }
+
+    .posSummaryCard {
+        position: static !important;
+    }
+}
+
+@media (max-width: 760px) {
+    .posHeader {
+        padding: 1rem !important;
+    }
+
+    .posHeader > .sapMFlexItem:last-child {
+        display: none !important;
+    }
+
+    .posContent {
+        padding: 1rem 1rem 2rem !important;
+    }
+
+    .posCard,
+    .posSummaryCard,
+    .posHelpCard {
+        padding: 1rem !important;
+    }
+
+    .posBarcodeInputArea {
+        flex-basis: 100% !important;
+    }
+
+    .posScanButton,
+    .posAddButton {
+        flex: 1 1 calc(50% - 0.4rem) !important;
+    }
+
+    .posScanButton .sapMBtnInner,
+    .posAddButton .sapMBtnInner {
+        width: 100% !important;
+    }
+
+    .scannerStatus {
+        display: none !important;
+    }
+}

@@ -1,0 +1,336 @@
+<mvc:View
+    controllerName="pharmatrack.login.controller.BranchDetail"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m"
+    displayBlock="true">
+
+    <Page
+        id="branchDetailPage"
+        showHeader="false"
+        enableScrolling="true"
+        class="branchesPage">
+
+        <content>
+
+            <VBox class="branchesShell">
+
+                <!-- ÜST BAR -->
+
+                <HBox
+                    class="branchesTopBar"
+                    alignItems="Center"
+                    justifyContent="SpaceBetween">
+
+                    <Button
+                        text="Şubelere Dön"
+                        icon="sap-icon://nav-back"
+                        type="Transparent"
+                        press=".onNavBack"
+                        class="branchesBackButton"/>
+
+                    <ObjectStatus
+                        text="{branchDetail>/statusText}"
+                        state="{branchDetail>/statusState}"
+                        class="branchesActiveStatus"/>
+
+                </HBox>
+
+                <!-- BAŞLIK -->
+
+                <VBox class="branchesHero">
+
+                    <Text
+                        text="PHARMATRACK ŞUBE YÖNETİMİ"
+                        class="branchesEyebrow"/>
+
+                    <Title
+                        text="{branchDetail>/branchName}"
+                        level="H1"
+                        class="branchesTitle"/>
+
+                    <Text
+                        text="{branchDetail>/subtitle}"
+                        class="branchesDescription"/>
+
+                </VBox>
+
+                <!-- ŞUBE ÖZET KARTI -->
+
+                <HBox
+                    class="branchesGrid"
+                    wrap="Wrap"
+                    justifyContent="Center">
+
+                    <VBox class="branchCard branchCardFeatured">
+
+                        <HBox
+                            class="branchCardHeader"
+                            alignItems="Center"
+                            justifyContent="SpaceBetween">
+
+                            <HBox
+                                class="branchIdentity"
+                                alignItems="Center">
+
+                                <HBox
+                                    class="branchIconBox"
+                                    alignItems="Center"
+                                    justifyContent="Center">
+
+                                    <core:Icon
+                                        src="sap-icon://building"
+                                        class="branchIcon"/>
+
+                                </HBox>
+
+                                <VBox>
+
+                                    <Title
+                                        text="{branchDetail>/branchName}"
+                                        level="H2"
+                                        class="branchName"/>
+
+                                    <Text
+                                        text="Güncel şube özeti"
+                                        class="branchLocation"/>
+
+                                </VBox>
+
+                            </HBox>
+
+                            <ObjectStatus
+                                text="{branchDetail>/statusText}"
+                                state="{branchDetail>/statusState}"
+                                class="branchStatus"/>
+
+                        </HBox>
+
+                        <VBox class="branchRevenueBox">
+
+                            <Text
+                                text="Bugünkü Ciro"
+                                class="branchRevenueLabel"/>
+
+                            <Text
+                                text="{branchDetail>/formattedRevenue}"
+                                class="branchRevenueValue"/>
+
+                            <Text
+                                text="{= 'Bugün ' + ${branchDetail>/todayItemsSold} + ' ürün satıldı' }"
+                                class="branchRevenueChange"/>
+
+                        </VBox>
+
+                        <HBox
+                            class="branchMetrics"
+                            wrap="Wrap">
+
+                            <VBox class="branchMetric">
+
+                                <Text
+                                    text="Satış Sayısı"
+                                    class="branchMetricLabel"/>
+
+                                <Text
+                                    text="{branchDetail>/todaySalesCount}"
+                                    class="branchMetricValue"/>
+
+                            </VBox>
+
+                            <VBox class="branchMetric">
+
+                                <Text
+                                    text="Kritik Stok"
+                                    class="branchMetricLabel"/>
+
+                                <Text
+                                    text="{branchDetail>/criticalStockCount}"
+                                    class="branchMetricValue branchMetricDanger"/>
+
+                            </VBox>
+
+                            <VBox class="branchMetric">
+
+                                <Text
+                                    text="Bekleyen Talep"
+                                    class="branchMetricLabel"/>
+
+                                <Text
+                                    text="{branchDetail>/pendingRequestCount}"
+                                    class="branchMetricValue branchMetricWarning"/>
+
+                            </VBox>
+
+                        </HBox>
+
+                    </VBox>
+
+                </HBox>
+
+                <!-- MODÜL BAŞLIĞI -->
+
+                <VBox class="branchesHeader">
+
+                    <Title
+                        text="Şube Modülleri"
+                        level="H2"
+                        class="branchCardTitle"/>
+
+                    <Text
+                        text="Seçilen şubenin satış, stok ve operasyon detaylarını inceleyin."
+                        class="branchesDescription"/>
+
+                </VBox>
+
+                <!-- MODÜL KARTLARI -->
+
+                <HBox
+                    class="adminMainCardGrid"
+                    wrap="Wrap">
+
+                    <!-- SATIŞLAR -->
+
+                    <VBox class="dashboardCard">
+
+                        <HBox
+                            class="dashboardCardIconBox"
+                            alignItems="Center"
+                            justifyContent="Center">
+
+                            <core:Icon
+                                src="sap-icon://sales-order"
+                                class="dashboardCardIcon"/>
+
+                        </HBox>
+
+                        <Title
+                            text="Satışlar"
+                            level="H3"
+                            class="dashboardCardTitle"/>
+
+                        <Text
+                            text="Şubede yapılan satışları, işlem tutarlarını ve günlük hareketleri görüntüleyin."
+                            class="dashboardCardText"/>
+
+                        <Button
+                            text="Satışları Gör"
+                            icon="sap-icon://navigation-right-arrow"
+                            iconFirst="false"
+                            type="Transparent"
+                            press=".onOpenSales"
+                            class="dashboardCardButton"/>
+
+                    </VBox>
+
+                    <!-- STOK -->
+
+                    <VBox class="dashboardCard">
+
+                        <HBox
+                            class="dashboardCardIconBox"
+                            alignItems="Center"
+                            justifyContent="Center">
+
+                            <core:Icon
+                                src="sap-icon://inventory"
+                                class="dashboardCardIcon"/>
+
+                        </HBox>
+
+                        <Title
+                            text="Stok ve Partiler"
+                            level="H3"
+                            class="dashboardCardTitle"/>
+
+                        <Text
+                            text="Şubeye ait stokları, lot numaralarını ve son kullanma tarihlerini inceleyin."
+                            class="dashboardCardText"/>
+
+                        <Button
+                            text="Stokları Gör"
+                            icon="sap-icon://navigation-right-arrow"
+                            iconFirst="false"
+                            type="Transparent"
+                            press=".onOpenStock"
+                            class="dashboardCardButton"/>
+
+                    </VBox>
+
+                    <!-- KRİTİK STOK -->
+
+                    <VBox class="dashboardCard">
+
+                        <HBox
+                            class="dashboardCardIconBox"
+                            alignItems="Center"
+                            justifyContent="Center">
+
+                            <core:Icon
+                                src="sap-icon://alert"
+                                class="dashboardCardIcon"/>
+
+                        </HBox>
+
+                        <Title
+                            text="Kritik Stoklar"
+                            level="H3"
+                            class="dashboardCardTitle"/>
+
+                        <Text
+                            text="Minimum stok seviyesine düşen ilaçları ve stok risklerini görüntüleyin."
+                            class="dashboardCardText"/>
+
+                        <Button
+                            text="Kritik Stokları Aç"
+                            icon="sap-icon://navigation-right-arrow"
+                            iconFirst="false"
+                            type="Transparent"
+                            press=".onOpenCriticalStock"
+                            class="dashboardCardButton"/>
+
+                    </VBox>
+
+                    <!-- TALEPLER -->
+
+                    <VBox class="dashboardCard">
+
+                        <HBox
+                            class="dashboardCardIconBox"
+                            alignItems="Center"
+                            justifyContent="Center">
+
+                            <core:Icon
+                                src="sap-icon://pending"
+                                class="dashboardCardIcon"/>
+
+                        </HBox>
+
+                        <Title
+                            text="Bekleyen Talepler"
+                            level="H3"
+                            class="dashboardCardTitle"/>
+
+                        <Text
+                            text="Şubenin stok girişi ve diğer operasyon taleplerini inceleyin."
+                            class="dashboardCardText"/>
+
+                        <Button
+                            text="Talepleri Gör"
+                            icon="sap-icon://navigation-right-arrow"
+                            iconFirst="false"
+                            type="Transparent"
+                            press=".onOpenRequests"
+                            class="dashboardCardButton"/>
+
+                    </VBox>
+
+                </HBox>
+
+            </VBox>
+
+        </content>
+
+    </Page>
+
+</mvc:View>

@@ -1,0 +1,308 @@
+<mvc:View
+    controllerName="pharmatrack.login.controller.NotificationCenter"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m"
+    displayBlock="true">
+
+    <Page
+        id="notificationCenterPage"
+        showHeader="false"
+        enableScrolling="true"
+        class="notificationPage">
+
+        <content>
+
+            <VBox class="notificationShell">
+
+                <!-- ÜST BAR -->
+
+                <HBox
+                    class="notificationTopBar"
+                    alignItems="Center"
+                    justifyContent="SpaceBetween">
+
+                    <Button
+                        text="Yönetim Paneline Dön"
+                        icon="sap-icon://nav-back"
+                        type="Transparent"
+                        press=".onNavBack"
+                        class="notificationBackButton"/>
+
+                    <ObjectStatus
+                        text="{notification>/statusText}"
+                        state="{notification>/statusState}"
+                        class="notificationStatus"/>
+
+                </HBox>
+
+                <!-- BAŞLIK -->
+
+                <VBox class="notificationHero">
+
+                    <Text
+                        text="PHARMATRACK YÖNETİM PANELİ"
+                        class="notificationEyebrow"/>
+
+                    <Title
+                        text="Bildirim Merkezi"
+                        level="H1"
+                        class="notificationTitle"/>
+
+                    <Text
+                        text="Kritik stokları, yaklaşan son kullanma tarihlerini ve satın alma önerilerini tek ekrandan takip edin."
+                        class="notificationDescription"/>
+
+                </VBox>
+
+                <!-- ÖZET KARTLARI -->
+
+                <HBox
+                    class="notificationSummaryGrid"
+                    wrap="Wrap">
+
+                    <VBox class="notificationSummaryCard">
+
+                        <HBox
+                            class="notificationSummaryIconBox"
+                            alignItems="Center"
+                            justifyContent="Center">
+
+                            <core:Icon
+                                src="sap-icon://alert"
+                                class="notificationSummaryIcon notificationDangerIcon"/>
+
+                        </HBox>
+
+                        <Text
+                            text="Kritik Stok"
+                            class="notificationSummaryLabel"/>
+
+                        <Text
+                            text="{notification>/criticalStockCount}"
+                            class="notificationSummaryValue notificationDangerValue"/>
+
+                    </VBox>
+
+                    <VBox class="notificationSummaryCard">
+
+                        <HBox
+                            class="notificationSummaryIconBox"
+                            alignItems="Center"
+                            justifyContent="Center">
+
+                            <core:Icon
+                                src="sap-icon://history"
+                                class="notificationSummaryIcon notificationWarningIcon"/>
+
+                        </HBox>
+
+                        <Text
+                            text="Yaklaşan SKT"
+                            class="notificationSummaryLabel"/>
+
+                        <Text
+                            text="{notification>/nearExpiryCount}"
+                            class="notificationSummaryValue notificationWarningValue"/>
+
+                    </VBox>
+
+                    <VBox class="notificationSummaryCard">
+
+                        <HBox
+                            class="notificationSummaryIconBox"
+                            alignItems="Center"
+                            justifyContent="Center">
+
+                            <core:Icon
+                                src="sap-icon://error"
+                                class="notificationSummaryIcon notificationDangerIcon"/>
+
+                        </HBox>
+
+                        <Text
+                            text="Tarihi Geçmiş"
+                            class="notificationSummaryLabel"/>
+
+                        <Text
+                            text="{notification>/expiredCount}"
+                            class="notificationSummaryValue notificationDangerValue"/>
+
+                    </VBox>
+
+                    <VBox class="notificationSummaryCard">
+
+                        <HBox
+                            class="notificationSummaryIconBox"
+                            alignItems="Center"
+                            justifyContent="Center">
+
+                            <core:Icon
+                                src="sap-icon://shipping-status"
+                                class="notificationSummaryIcon"/>
+
+                        </HBox>
+
+                        <Text
+                            text="Sipariş Önerisi"
+                            class="notificationSummaryLabel"/>
+
+                        <Text
+                            text="{notification>/orderSuggestionCount}"
+                            class="notificationSummaryValue"/>
+
+                    </VBox>
+
+                </HBox>
+
+                <!-- BÖLÜM BAŞLIĞI -->
+
+                <HBox
+                    class="notificationSectionHeader"
+                    alignItems="End"
+                    justifyContent="SpaceBetween">
+
+                    <VBox>
+
+                        <Title
+                            text="Güncel Bildirimler"
+                            level="H2"
+                            class="notificationSectionTitle"/>
+
+                        <Text
+                            text="Bildirimler stok ve son kullanma tarihi verilerine göre otomatik oluşturulur."
+                            class="notificationSectionDescription"/>
+
+                    </VBox>
+
+                    <Button
+                        text="Yenile"
+                        icon="sap-icon://refresh"
+                        type="Transparent"
+                        press=".onRefresh"
+                        class="notificationRefreshButton"/>
+
+                </HBox>
+
+                <!-- YÜKLENİYOR -->
+
+                <HBox
+                    visible="{notification>/loading}"
+                    class="notificationLoadingArea"
+                    alignItems="Center"
+                    justifyContent="Center">
+
+                    <BusyIndicator size="1.5rem"/>
+
+                </HBox>
+
+                <!-- HATA -->
+
+                <MessageStrip
+                    visible="{notification>/error}"
+                    text="{notification>/errorMessage}"
+                    type="Error"
+                    showIcon="true"
+                    class="notificationMessageStrip"/>
+
+                <!-- BOŞ DURUM -->
+
+                <VBox
+                    visible="{notification>/empty}"
+                    class="notificationEmptyState"
+                    alignItems="Center">
+
+                    <HBox
+                        class="notificationEmptyIconBox"
+                        alignItems="Center"
+                        justifyContent="Center">
+
+                        <core:Icon
+                            src="sap-icon://complete"
+                            class="notificationEmptyIcon"/>
+
+                    </HBox>
+
+                    <Title
+                        text="Aktif bildirim bulunmuyor"
+                        level="H3"
+                        class="notificationEmptyTitle"/>
+
+                    <Text
+                        text="Kritik stok veya son kullanma tarihi uyarısı oluştuğunda burada gösterilecektir."
+                        textAlign="Center"
+                        class="notificationEmptyText"/>
+
+                </VBox>
+
+                <!-- BİLDİRİM KARTLARI -->
+
+                <VBox
+                    class="notificationList"
+                    items="{notification>/notifications}">
+
+                    <items>
+
+                        <HBox
+                            class="notificationCard"
+                            alignItems="Center"
+                            justifyContent="SpaceBetween">
+
+                            <HBox
+                                class="notificationIdentity"
+                                alignItems="Center">
+
+                                <HBox
+                                    class="notificationIconBox"
+                                    alignItems="Center"
+                                    justifyContent="Center">
+
+                                    <core:Icon
+                                        src="{notification>icon}"
+                                        class="notificationCardIcon"/>
+
+                                </HBox>
+
+                                <VBox>
+
+                                    <Title
+                                        text="{notification>title}"
+                                        level="H3"
+                                        class="notificationCardTitle"/>
+
+                                    <Text
+                                        text="{notification>description}"
+                                        class="notificationCardDescription"/>
+
+                                </VBox>
+
+                            </HBox>
+
+                            <VBox
+                                class="notificationRightArea"
+                                alignItems="End">
+
+                                <ObjectStatus
+                                    text="{notification>priorityText}"
+                                    state="{notification>state}"
+                                    class="notificationPriority"/>
+
+                                <Text
+                                    text="{notification>countText}"
+                                    class="notificationCount"/>
+
+                            </VBox>
+
+                        </HBox>
+
+                    </items>
+
+                </VBox>
+
+            </VBox>
+
+        </content>
+
+    </Page>
+
+</mvc:View>

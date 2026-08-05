@@ -1,0 +1,392 @@
+<mvc:View
+    controllerName="pharmatrack.login.controller.ApprovalCenter"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m"
+    displayBlock="true">
+
+    <Page
+        id="approvalCenterPage"
+        showHeader="false"
+        enableScrolling="true"
+        class="approvalPage">
+
+        <content>
+
+            <VBox class="approvalShell">
+
+                <!-- ÜST BAR -->
+
+                <HBox
+                    class="approvalTopBar"
+                    alignItems="Center"
+                    justifyContent="SpaceBetween">
+
+                    <Button
+                        text="Yönetim Paneline Dön"
+                        icon="sap-icon://nav-back"
+                        type="Transparent"
+                        press=".onNavBack"
+                        class="approvalBackButton"/>
+
+                    <ObjectStatus
+                        text="{approval>/pendingStatusText}"
+                        state="Warning"
+                        class="approvalPendingStatus"/>
+
+                </HBox>
+
+                <!-- BAŞLIK -->
+
+                <VBox class="approvalHero">
+
+                    <Text
+                        text="PHARMATRACK YÖNETİM PANELİ"
+                        class="approvalEyebrow"/>
+
+                    <Title
+                        text="Onay Merkezi"
+                        level="H1"
+                        class="approvalTitle"/>
+
+                    <Text
+                        text="Şubelerden gönderilen stok giriş taleplerini inceleyin, onaylayın veya reddedin."
+                        class="approvalDescription"/>
+
+                </VBox>
+
+                <!-- ÖZET KARTLARI -->
+
+                <HBox
+                    class="approvalSummaryGrid"
+                    wrap="Wrap">
+
+                    <VBox class="approvalSummaryCard">
+
+                        <HBox
+                            class="approvalSummaryIconBox"
+                            alignItems="Center"
+                            justifyContent="Center">
+
+                            <core:Icon
+                                src="sap-icon://pending"
+                                class="approvalSummaryIcon"/>
+
+                        </HBox>
+
+                        <Text
+                            text="Bekleyen"
+                            class="approvalSummaryLabel"/>
+
+                        <Text
+                            text="{approval>/pendingCount}"
+                            class="approvalSummaryValue approvalWarningValue"/>
+
+                    </VBox>
+
+                    <VBox class="approvalSummaryCard">
+
+                        <HBox
+                            class="approvalSummaryIconBox"
+                            alignItems="Center"
+                            justifyContent="Center">
+
+                            <core:Icon
+                                src="sap-icon://accept"
+                                class="approvalSummaryIcon"/>
+
+                        </HBox>
+
+                        <Text
+                            text="Onaylanan"
+                            class="approvalSummaryLabel"/>
+
+                        <Text
+                            text="{approval>/approvedCount}"
+                            class="approvalSummaryValue"/>
+
+                    </VBox>
+
+                    <VBox class="approvalSummaryCard">
+
+                        <HBox
+                            class="approvalSummaryIconBox"
+                            alignItems="Center"
+                            justifyContent="Center">
+
+                            <core:Icon
+                                src="sap-icon://decline"
+                                class="approvalSummaryIcon approvalDangerIcon"/>
+
+                        </HBox>
+
+                        <Text
+                            text="Reddedilen"
+                            class="approvalSummaryLabel"/>
+
+                        <Text
+                            text="{approval>/rejectedCount}"
+                            class="approvalSummaryValue approvalDangerValue"/>
+
+                    </VBox>
+
+                    <VBox class="approvalSummaryCard">
+
+                        <HBox
+                            class="approvalSummaryIconBox"
+                            alignItems="Center"
+                            justifyContent="Center">
+
+                            <core:Icon
+                                src="sap-icon://product"
+                                class="approvalSummaryIcon"/>
+
+                        </HBox>
+
+                        <Text
+                            text="Toplam Talep"
+                            class="approvalSummaryLabel"/>
+
+                        <Text
+                            text="{approval>/totalCount}"
+                            class="approvalSummaryValue"/>
+
+                    </VBox>
+
+                </HBox>
+
+                <!-- BÖLÜM BAŞLIĞI -->
+
+                <HBox
+                    class="approvalSectionHeader"
+                    alignItems="End"
+                    justifyContent="SpaceBetween">
+
+                    <VBox>
+
+                        <Title
+                            text="Bekleyen Stok Girişleri"
+                            level="H2"
+                            class="approvalSectionTitle"/>
+
+                        <Text
+                            text="Onaylanan talepler şubenin parti ve stok kayıtlarına otomatik eklenir."
+                            class="approvalSectionDescription"/>
+
+                    </VBox>
+
+                    <Button
+                        text="Yenile"
+                        icon="sap-icon://refresh"
+                        type="Transparent"
+                        press=".onRefresh"
+                        class="approvalRefreshButton"/>
+
+                </HBox>
+
+                <!-- YÜKLENİYOR -->
+
+                <HBox
+                    visible="{approval>/loading}"
+                    class="approvalLoadingArea"
+                    alignItems="Center"
+                    justifyContent="Center">
+
+                    <BusyIndicator
+                        size="1.5rem"/>
+
+                </HBox>
+
+                <!-- HATA -->
+
+                <MessageStrip
+                    visible="{approval>/error}"
+                    text="{approval>/errorMessage}"
+                    type="Error"
+                    showIcon="true"
+                    class="approvalMessageStrip"/>
+
+                <!-- BOŞ DURUM -->
+
+                <VBox
+                    visible="{approval>/empty}"
+                    class="approvalEmptyState"
+                    alignItems="Center">
+
+                    <HBox
+                        class="approvalEmptyIconBox"
+                        alignItems="Center"
+                        justifyContent="Center">
+
+                        <core:Icon
+                            src="sap-icon://complete"
+                            class="approvalEmptyIcon"/>
+
+                    </HBox>
+
+                    <Title
+                        text="Bekleyen talep bulunmuyor"
+                        level="H3"
+                        class="approvalEmptyTitle"/>
+
+                    <Text
+                        text="Şubelerden yeni bir stok giriş talebi geldiğinde burada görüntülenecektir."
+                        textAlign="Center"
+                        class="approvalEmptyText"/>
+
+                </VBox>
+
+                <!-- TALEP KARTLARI -->
+
+                <VBox
+                    class="approvalRequestList"
+                    items="{approval>/pendingRequests}">
+
+                    <items>
+
+                        <VBox class="approvalRequestCard">
+
+                            <HBox
+                                class="approvalRequestHeader"
+                                alignItems="Center"
+                                justifyContent="SpaceBetween">
+
+                                <HBox
+                                    class="approvalRequestIdentity"
+                                    alignItems="Center">
+
+                                    <HBox
+                                        class="approvalRequestIconBox"
+                                        alignItems="Center"
+                                        justifyContent="Center">
+
+                                        <core:Icon
+                                            src="sap-icon://add-product"
+                                            class="approvalRequestIcon"/>
+
+                                    </HBox>
+
+                                    <VBox>
+
+                                        <Title
+                                            text="{approval>medicineName}"
+                                            level="H3"
+                                            class="approvalRequestTitle"/>
+
+                                        <Text
+                                            text="{approval>requestNumber}"
+                                            class="approvalRequestNumber"/>
+
+                                    </VBox>
+
+                                </HBox>
+
+                                <ObjectStatus
+                                    text="Bekliyor"
+                                    state="Warning"
+                                    class="approvalRequestStatus"/>
+
+                            </HBox>
+
+                            <HBox
+                                class="approvalRequestDetails"
+                                wrap="Wrap">
+
+                                <VBox class="approvalDetailItem">
+                                    <Text
+                                        text="Şube"
+                                        class="approvalDetailLabel"/>
+                                    <Text
+                                        text="{approval>branchName}"
+                                        class="approvalDetailValue"/>
+                                </VBox>
+
+                                <VBox class="approvalDetailItem">
+                                    <Text
+                                        text="Miktar"
+                                        class="approvalDetailLabel"/>
+                                    <Text
+                                        text="{approval>quantityText}"
+                                        class="approvalDetailValue"/>
+                                </VBox>
+
+                                <VBox class="approvalDetailItem">
+                                    <Text
+                                        text="Lot Numarası"
+                                        class="approvalDetailLabel"/>
+                                    <Text
+                                        text="{approval>lotNumber}"
+                                        class="approvalDetailValue"/>
+                                </VBox>
+
+                                <VBox class="approvalDetailItem">
+                                    <Text
+                                        text="Son Kullanma"
+                                        class="approvalDetailLabel"/>
+                                    <Text
+                                        text="{approval>formattedExpiryDate}"
+                                        class="approvalDetailValue"/>
+                                </VBox>
+
+                                <VBox class="approvalDetailItem">
+                                    <Text
+                                        text="Alış Fiyatı"
+                                        class="approvalDetailLabel"/>
+                                    <Text
+                                        text="{approval>formattedPurchasePrice}"
+                                        class="approvalDetailValue"/>
+                                </VBox>
+
+                                <VBox class="approvalDetailItem">
+                                    <Text
+                                        text="Önerilen Satış"
+                                        class="approvalDetailLabel"/>
+                                    <Text
+                                        text="{approval>formattedSalePrice}"
+                                        class="approvalDetailValue"/>
+                                </VBox>
+
+                            </HBox>
+
+                            <HBox
+                                class="approvalRequestFooter"
+                                alignItems="Center"
+                                justifyContent="SpaceBetween">
+
+                                <Text
+                                    text="{approval>createdText}"
+                                    class="approvalCreatedText"/>
+
+                                <HBox class="approvalActions">
+
+                                    <Button
+                                        text="Reddet"
+                                        icon="sap-icon://decline"
+                                        type="Reject"
+                                        press=".onReject"
+                                        class="approvalRejectButton"/>
+
+                                    <Button
+                                        text="Onayla"
+                                        icon="sap-icon://accept"
+                                        type="Accept"
+                                        press=".onApprove"
+                                        class="approvalAcceptButton"/>
+
+                                </HBox>
+
+                            </HBox>
+
+                        </VBox>
+
+                    </items>
+
+                </VBox>
+
+            </VBox>
+
+        </content>
+
+    </Page>
+
+</mvc:View>

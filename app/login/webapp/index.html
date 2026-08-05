@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>PharmaTrack</title>
+
+    <script
+        id="sap-ui-bootstrap"
+        src="https://ui5.sap.com/resources/sap-ui-core.js"
+        data-sap-ui-theme="sap_horizon"
+        data-sap-ui-libs="sap.m,sap.ui.core"
+        data-sap-ui-compat-version="edge"
+        data-sap-ui-async="true"
+        data-sap-ui-resourceroots='{
+            "pharmatrack.login": "./"
+        }'>
+    </script>
+
+    <script>
+        sap.ui.getCore().attachInit(function () {
+            sap.ui.require([
+                "sap/ui/core/ComponentContainer",
+                "pharmatrack/login/Component"
+            ], function (ComponentContainer, LoginComponent) {
+                var oComponent = new LoginComponent({
+                    id: "pharmatrackLogin"
+                });
+
+                new ComponentContainer({
+                    component: oComponent,
+                    height: "100%",
+                    width: "100%"
+                }).placeAt("content");
+            });
+        });
+    </script>
+</head>
+
+<body class="sapUiBody sapUiSizeCompact">
+    <div id="content"></div>
+</body>
+</html>

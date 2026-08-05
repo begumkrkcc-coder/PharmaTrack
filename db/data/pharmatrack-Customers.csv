@@ -1,0 +1,11 @@
+ID,customerNumber,fullName,nationalId,birthDate,phone,email,insuranceStatus,isRetired,isContributionExempt,isActive,insurancePlan_ID
+f8811711-d1e2-51f0-95c1-f339f59dcfbb,CUST-001,Ayşe Yılmaz,10000000001,1988-03-12,+90 532 100 00 01,ayse.yilmaz@example.com,ACTIVE,false,false,true,53d3e07b-b61d-57db-a17c-4711f77b4dd0
+99343950-f2db-564e-9bb1-1ab8f7c9d24f,CUST-002,Mehmet Demir,10000000002,1956-08-21,+90 532 100 00 02,mehmet.demir@example.com,ACTIVE,true,false,true,db585d76-8818-59ef-a805-55a5d9499d4e
+4ec4ab82-9fba-51e7-b4d4-772bff73bd40,CUST-003,Zeynep Kaya,10000000003,1994-11-02,+90 532 100 00 03,zeynep.kaya@example.com,ACTIVE,false,false,true,7931e5d8-6d96-5792-83a4-f01df7d8fe0d
+944bf158-6f2d-532a-b9f8-8df7ab5883d8,CUST-004,Ali Çelik,10000000004,1979-05-17,+90 532 100 00 04,ali.celik@example.com,ACTIVE,false,false,true,53d3e07b-b61d-57db-a17c-4711f77b4dd0
+2bf9ce58-1266-5370-adf3-c7ca4fc9afdf,CUST-005,Elif Şahin,10000000005,2001-09-30,+90 532 100 00 05,elif.sahin@example.com,ACTIVE,false,false,true,efc4fc4a-c04b-5d3d-b769-a1748bc8659f
+f6da5996-bdd7-549c-b775-e53d2bfae3a0,CUST-006,Hasan Aydın,10000000006,1949-01-25,+90 532 100 00 06,hasan.aydin@example.com,ACTIVE,true,true,true,db585d76-8818-59ef-a805-55a5d9499d4e
+41e12865-9297-54bc-81cc-abb771cbc0bd,CUST-007,Merve Koç,10000000007,1997-06-14,+90 532 100 00 07,merve.koc@example.com,ACTIVE,false,false,true,53d3e07b-b61d-57db-a17c-4711f77b4dd0
+9f670be0-1964-5e98-a2e8-e8cb69b30153,CUST-008,Emre Arslan,10000000008,1985-12-09,+90 532 100 00 08,emre.arslan@example.com,ACTIVE,false,false,true,7931e5d8-6d96-5792-83a4-f01df7d8fe0d
+3c83048d-5fc4-545c-ad8d-dbc5e85674b7,CUST-009,Fatma Yıldız,10000000009,1962-04-03,+90 532 100 00 09,fatma.yildiz@example.com,ACTIVE,true,false,true,db585d76-8818-59ef-a805-55a5d9499d4e
+fc9fc004-9b19-51d6-a108-037108e23930,CUST-010,Can Öztürk,10000000010,1990-07-18,+90 532 100 00 10,can.ozturk@example.com,ACTIVE,false,false,true,efc4fc4a-c04b-5d3d-b769-a1748bc8659f

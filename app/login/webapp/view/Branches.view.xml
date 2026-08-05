@@ -1,0 +1,251 @@
+<mvc:View
+    controllerName="pharmatrack.login.controller.Branches"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m"
+    displayBlock="true">
+
+    <Page
+        id="branchesPage"
+        showHeader="false"
+        enableScrolling="true"
+        class="branchesPage">
+
+        <content>
+
+            <VBox class="branchesShell">
+
+                <!-- ÜST BAR -->
+
+                <HBox
+                    class="branchesTopBar"
+                    alignItems="Center"
+                    justifyContent="SpaceBetween">
+
+                    <Button
+                        text="Yönetim Paneline Dön"
+                        icon="sap-icon://nav-back"
+                        type="Transparent"
+                        press=".onNavBack"
+                        class="branchesBackButton"/>
+
+                    <ObjectStatus
+                        text="{branches>/activeBranchText}"
+                        state="Success"
+                        class="branchesActiveStatus"/>
+
+                </HBox>
+
+                <!-- BAŞLIK -->
+
+                <VBox class="branchesHero">
+
+                    <Text
+                        text="PHARMATRACK YÖNETİM PANELİ"
+                        class="branchesEyebrow"/>
+
+                    <Title
+                        text="Şubeler"
+                        level="H1"
+                        class="branchesTitle"/>
+
+                    <Text
+                        text="Şubelerin satış, stok ve operasyon durumlarını gerçek zamanlı olarak tek ekrandan izleyin."
+                        class="branchesDescription"/>
+
+                </VBox>
+
+                <!-- YÜKLENİYOR -->
+
+                <HBox
+                    width="100%"
+                    alignItems="Center"
+                    justifyContent="Center">
+
+                    <BusyIndicator
+                        visible="{branches>/loading}"
+                        size="1.5rem"
+                        class="branchesBusyIndicator"/>
+
+                </HBox>
+
+                <!-- HATA -->
+
+                <MessageStrip
+                    visible="{branches>/error}"
+                    text="{branches>/errorMessage}"
+                    type="Error"
+                    showIcon="true"
+                    class="branchesErrorMessage"/>
+
+                <!-- DİNAMİK ŞUBE KARTLARI -->
+
+                <HBox
+                    class="branchesGrid"
+                    wrap="Wrap"
+                    justifyContent="Center"
+                    items="{branches>/branches}">
+
+                    <items>
+
+                        <VBox class="branchCard">
+
+                            <!-- KART BAŞLIĞI -->
+
+                            <HBox
+                                class="branchCardHeader"
+                                alignItems="Center"
+                                justifyContent="SpaceBetween">
+
+                                <HBox
+                                    class="branchIdentity"
+                                    alignItems="Center">
+
+                                    <HBox
+                                        class="branchIconBox"
+                                        alignItems="Center"
+                                        justifyContent="Center">
+
+                                        <core:Icon
+                                            src="sap-icon://building"
+                                            class="branchIcon"/>
+
+                                    </HBox>
+
+                                    <VBox>
+
+                                        <Title
+                                            text="{branches>branchName}"
+                                            level="H2"
+                                            class="branchName"/>
+
+                                        <Text
+                                            text="{branches>district}"
+                                            class="branchLocation"/>
+
+                                    </VBox>
+
+                                </HBox>
+
+                                <ObjectStatus
+                                    text="{branches>statusText}"
+                                    state="{branches>statusState}"
+                                    class="branchStatus"/>
+
+                            </HBox>
+
+                            <!-- CİRO -->
+
+                            <VBox class="branchRevenueBox">
+
+                                <Text
+                                    text="Bugünkü Ciro"
+                                    class="branchRevenueLabel"/>
+
+                                <Text
+                                    text="{branches>formattedRevenue}"
+                                    class="branchRevenueValue"/>
+
+                                <Text
+                                    text="{branches>todayItemsText}"
+                                    class="branchRevenueChange"/>
+
+                            </VBox>
+
+                            <!-- İSTATİSTİKLER -->
+
+                            <HBox
+                                class="branchMetrics"
+                                wrap="Wrap">
+
+                                <VBox class="branchMetric">
+
+                                    <Text
+                                        text="Satış Sayısı"
+                                        class="branchMetricLabel"/>
+
+                                    <Text
+                                        text="{branches>todaySalesCount}"
+                                        class="branchMetricValue"/>
+
+                                </VBox>
+
+                                <VBox class="branchMetric">
+
+                                    <Text
+                                        text="Kritik Stok"
+                                        class="branchMetricLabel"/>
+
+                                    <Text
+                                        text="{branches>criticalStockCount}"
+                                        class="branchMetricValue branchMetricDanger"/>
+
+                                </VBox>
+
+                                <VBox class="branchMetric">
+
+                                    <Text
+                                        text="Bekleyen Talep"
+                                        class="branchMetricLabel"/>
+
+                                    <Text
+                                        text="{branches>pendingRequestCount}"
+                                        class="branchMetricValue branchMetricWarning"/>
+
+                                </VBox>
+
+                            </HBox>
+
+                            <!-- ŞUBEYİ AÇ -->
+
+                            <Button
+                                text="Şubeyi Aç"
+                                icon="sap-icon://navigation-right-arrow"
+                                iconFirst="false"
+                                type="Emphasized"
+                                press=".onOpenBranch"
+                                class="branchActionButton"/>
+
+                        </VBox>
+
+                    </items>
+
+                </HBox>
+
+                <!-- ALT BİLGİ -->
+
+                <HBox
+                    class="branchesInfoStrip"
+                    alignItems="Center"
+                    justifyContent="SpaceBetween">
+
+                    <HBox
+                        alignItems="Center"
+                        class="branchesInfoContent">
+
+                        <core:Icon
+                            src="sap-icon://information"
+                            class="branchesInfoIcon"/>
+
+                        <Text
+                            text="Veriler PharmaTrack CAP servisinden gerçek zamanlı olarak alınmaktadır."
+                            class="branchesInfoText"/>
+
+                    </HBox>
+
+                    <Button
+                        text="Yenile"
+                        icon="sap-icon://refresh"
+                        type="Transparent"
+                        press=".onRefresh"
+                        class="branchesRefreshButton"/>
+
+                </HBox>
+
+            </VBox>
+
+        </content>
+
+    </Page>
+
+</mvc:View>

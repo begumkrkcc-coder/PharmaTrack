@@ -1,0 +1,163 @@
+{
+  "_version": "1.86.0",
+  "sap.app": {
+    "id": "project1",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:lrop",
+      "version": "1.28.0",
+      "toolsId": "72bd55de-bd58-4e9d-9878-34faf55ac64f"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/odata/v4/pharmacy/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "odataVersion": "4.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.149.0",
+      "libs": {
+  "sap.m": {},
+  "sap.ui.core": {},
+  "sap.fe.templates": {},
+  "sap.ndc": {}
+}
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "project1.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      },
+      "@i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/i18n.properties"
+      }
+    },
+    "resources": {
+      "css": []
+    },
+    "routing": {
+      "config": {},
+      "routes": [
+        {
+          "pattern": ":?query:",
+          "name": "MedicinesList",
+          "target": "MedicinesList"
+        },
+        {
+          "pattern": "Medicines({key}):?query:",
+          "name": "MedicinesObjectPage",
+          "target": "MedicinesObjectPage"
+        }
+      ],
+      "targets": {
+        "MedicinesList": {
+          "type": "Component",
+          "id": "MedicinesList",
+          "name": "sap.fe.templates.ListReport",
+          "options": {
+            "settings": {
+              "contextPath": "/Medicines",
+              "variantManagement": "Page",
+              "navigation": {
+                "Medicines": {
+                  "detail": {
+                    "route": "MedicinesObjectPage"
+                  }
+                }
+              },
+             "controlConfiguration": {
+  "@com.sap.vocabularies.UI.v1.LineItem": {
+    "tableSettings": {
+      "type": "ResponsiveTable"
+    },
+    "actions": {
+  "scanBarcode": {
+    "press": "project1.ext.controller.BarcodeScanner.onScanBarcode",
+    "text": "Barkod Tara",
+    "visible": true,
+    "enabled": true,
+    "requiresSelection": false
+  },
+  "sellByBarcode": {
+    "press": "project1.ext.controller.SalesScanner.onSellByBarcode",
+    "text": "Satış Yap",
+    "visible": true,
+    "enabled": true,
+    "requiresSelection": false
+  }
+}
+  }
+}
+            }
+          }
+        },
+        "MedicinesObjectPage": {
+          "type": "Component",
+          "id": "MedicinesObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "editableHeaderContent": false,
+              "contextPath": "/Medicines"
+            }
+          }
+        }
+      }
+    }
+  },
+  "sap.fiori": {
+    "registrationIds": [],
+    "archeType": "transactional"
+  },
+  "sap.fe": {
+    "app": {
+      "enableLazyLoading": true
+    }
+  }
+}

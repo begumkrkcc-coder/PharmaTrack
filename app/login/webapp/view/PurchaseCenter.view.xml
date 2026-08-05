@@ -1,0 +1,261 @@
+<mvc:View
+    controllerName="pharmatrack.login.controller.PurchaseCenter"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    displayBlock="true">
+
+    <Page showHeader="false" class="purchaseCenterPage">
+
+        <content>
+
+            <VBox class="approvalShell">
+
+                <HBox justifyContent="SpaceBetween" alignItems="Center">
+
+                    <Button
+                        text="Yönetim Paneline Dön"
+                        icon="sap-icon://nav-back"
+                        press=".onNavBack"
+                        class="branchesBackButton"/>
+
+                    <ObjectStatus
+                        text="24 Tedarikçi"
+                        state="Success"
+                        class="branchesActiveStatus"/>
+
+                </HBox>
+
+
+                <VBox class="approvalHero">
+
+                    <Text
+                        text="PHARMATRACK YÖNETİM PANELİ"
+                        class="branchesEyebrow"/>
+
+                    <Title
+                        text="Satın Alma ve Tedarik"
+                        class="branchesTitle"/>
+
+                    <Text
+                        text="Tedarikçileri yönetin, satın alma siparişlerini oluşturun ve teslimat süreçlerini takip edin."
+                        class="branchesDescription"/>
+
+                </VBox>
+
+
+                <HBox
+                    wrap="Wrap"
+                    class="approvalSummaryGrid">
+
+                    <VBox class="approvalSummaryCard">
+
+                        <HBox
+                            class="approvalSummaryIconBox"
+                            justifyContent="Center"
+                            alignItems="Center">
+
+                            <core:Icon
+                                src="sap-icon://cart"
+                                class="approvalSummaryIcon"/>
+
+                        </HBox>
+
+                        <Text
+                            text="Bekleyen Sipariş"
+                            class="approvalSummaryLabel"/>
+
+                        <Title
+                            text="{purchase>/pendingOrders}"
+                            class="approvalSummaryValue"/>
+
+                    </VBox>
+
+
+                    <VBox class="approvalSummaryCard">
+
+                        <HBox
+                            class="approvalSummaryIconBox"
+                            justifyContent="Center"
+                            alignItems="Center">
+
+                            <core:Icon
+                                src="sap-icon://shipping-status"
+                                class="approvalSummaryIcon"/>
+
+                        </HBox>
+
+                        <Text
+                            text="Teslim Edilen"
+                            class="approvalSummaryLabel"/>
+
+                        <Title
+                            text="{purchase>/deliveredOrders}"
+                            class="approvalSummaryValue"/>
+
+                    </VBox>
+
+
+                    <VBox class="approvalSummaryCard">
+
+                        <HBox
+                            class="approvalSummaryIconBox"
+                            justifyContent="Center"
+                            alignItems="Center">
+
+                            <core:Icon
+                                src="sap-icon://supplier"
+                                class="approvalSummaryIcon"/>
+
+                        </HBox>
+
+                        <Text
+                            text="Tedarikçi"
+                            class="approvalSummaryLabel"/>
+
+                        <Title
+                            text="{purchase>/supplierCount}"
+                            class="approvalSummaryValue"/>
+
+                    </VBox>
+
+
+                    <VBox class="approvalSummaryCard">
+
+                        <HBox
+                            class="approvalSummaryIconBox"
+                            justifyContent="Center"
+                            alignItems="Center">
+
+                            <core:Icon
+                                src="sap-icon://money-bills"
+                                class="approvalSummaryIcon"/>
+
+                        </HBox>
+
+                        <Text
+                            text="Bu Ay Satın Alma"
+                            class="approvalSummaryLabel"/>
+
+                        <Title
+                            text="{purchase>/monthlyPurchase}"
+                            class="approvalSummaryValue"/>
+
+                    </VBox>
+
+                </HBox>
+
+
+                <HBox
+                    justifyContent="SpaceBetween"
+                    alignItems="End">
+
+                    <VBox>
+
+                        <Title
+                            text="Satın Alma Siparişleri"
+                            class="approvalSectionTitle"/>
+
+                        <Text
+                            text="Oluşturulan satın alma siparişlerini yönetin."
+                            class="approvalSectionDescription"/>
+
+                    </VBox>
+
+                    <Button
+                        text="Yenile"
+                        icon="sap-icon://refresh"
+                        type="Transparent"/>
+
+                </HBox>
+
+
+                <Table>
+
+                    <columns>
+
+                        <Column>
+                            <Text text="Sipariş"/>
+                        </Column>
+
+                        <Column>
+                            <Text text="Tedarikçi"/>
+                        </Column>
+
+                        <Column>
+                            <Text text="Durum"/>
+                        </Column>
+
+                        <Column>
+                            <Text text="Tutar"/>
+                        </Column>
+
+                    </columns>
+
+                    <items>
+
+                        <ColumnListItem>
+
+                            <cells>
+
+                                <Text text="PO-1001"/>
+
+                                <Text text="Bayer"/>
+
+                                <ObjectStatus
+                                    text="Bekliyor"
+                                    state="Warning"/>
+
+                                <Text text="₺24.500"/>
+
+                            </cells>
+
+                        </ColumnListItem>
+
+                        <ColumnListItem>
+
+                            <cells>
+
+                                <Text text="PO-1002"/>
+
+                                <Text text="Abdi İbrahim"/>
+
+                                <ObjectStatus
+                                    text="Teslim Edildi"
+                                    state="Success"/>
+
+                                <Text text="₺13.200"/>
+
+                            </cells>
+
+                        </ColumnListItem>
+
+                        <ColumnListItem>
+
+                            <cells>
+
+                                <Text text="PO-1003"/>
+
+                                <Text text="Deva"/>
+
+                                <ObjectStatus
+                                    text="Hazırlanıyor"
+                                    state="Information"/>
+
+                                <Text text="₺8.900"/>
+
+                            </cells>
+
+                        </ColumnListItem>
+
+                    </items>
+
+                </Table>
+
+            </VBox>
+
+        </content>
+
+    </Page>
+
+</mvc:View>

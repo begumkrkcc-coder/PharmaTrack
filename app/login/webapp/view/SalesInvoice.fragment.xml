@@ -1,0 +1,366 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+
+    <Dialog
+        id="salesInvoiceDialog"
+        title="Satış Faturası"
+        contentWidth="72rem"
+        contentHeight="80%"
+        draggable="true"
+        resizable="true">
+
+        <customHeader>
+            <Bar>
+                <contentLeft>
+                    <HBox
+                        alignItems="Center"
+                        class="sapUiSmallMarginBegin">
+
+                        <core:Icon
+                            src="sap-icon://receipt"
+                            size="1.4rem"
+                            class="sapUiTinyMarginEnd"/>
+
+                        <VBox>
+                            <Title
+                                text="PharmaTrack Satış Faturası"
+                                level="H2"/>
+
+                            <Text
+                                text="{history>/selectedSale/saleNumber}"/>
+                        </VBox>
+                    </HBox>
+                </contentLeft>
+
+                <contentRight>
+                    <ObjectStatus
+                        text="{history>/selectedSale/statusText}"
+                        state="{history>/selectedSale/statusState}"
+                        class="sapUiSmallMarginEnd"/>
+                </contentRight>
+            </Bar>
+        </customHeader>
+
+        <content>
+            <VBox class="sapUiMediumMargin">
+
+                <!-- SATIŞ BİLGİLERİ -->
+                <Panel
+                    headerText="Satış Bilgileri"
+                    expandable="false"
+                    class="sapUiSmallMarginBottom">
+
+                    <content>
+                        <HBox
+                            wrap="Wrap"
+                            justifyContent="SpaceBetween">
+
+                            <VBox
+                                width="15rem"
+                                class="sapUiSmallMargin">
+
+                                <Label text="Satış Numarası"/>
+
+                                <Text
+                                    text="{history>/selectedSale/saleNumber}"/>
+                            </VBox>
+
+                            <VBox
+                                width="15rem"
+                                class="sapUiSmallMargin">
+
+                                <Label text="Satış Tarihi"/>
+
+                                <Text
+                                    text="{
+                                        path: 'history>/selectedSale/saleDate',
+                                        formatter: '.formatDateTime'
+                                    }"/>
+                            </VBox>
+
+                            <VBox
+                                width="15rem"
+                                class="sapUiSmallMargin">
+
+                                <Label text="Satış Türü"/>
+
+                                <ObjectStatus
+                                    text="{history>/selectedSale/saleTypeText}"
+                                    state="{history>/selectedSale/saleTypeState}"/>
+                            </VBox>
+
+                            <VBox
+                                width="15rem"
+                                class="sapUiSmallMargin">
+
+                                <Label text="Reçete Numarası"/>
+
+                                <Text
+                                    text="{history>/selectedSale/prescriptionDisplay}"/>
+                            </VBox>
+                        </HBox>
+                    </content>
+                </Panel>
+
+                <!-- MÜŞTERİ BİLGİLERİ -->
+                <Panel
+                    headerText="Müşteri ve Sigorta Bilgileri"
+                    expandable="false"
+                    class="sapUiSmallMarginBottom">
+
+                    <content>
+                        <HBox
+                            wrap="Wrap"
+                            justifyContent="SpaceBetween">
+
+                            <VBox
+                                width="15rem"
+                                class="sapUiSmallMargin">
+
+                                <Label text="Müşteri"/>
+
+                                <Text
+                                    text="{history>/selectedSale/customerName}"/>
+                            </VBox>
+
+                            <VBox
+                                width="15rem"
+                                class="sapUiSmallMargin">
+
+                                <Label text="T.C. Kimlik Numarası"/>
+
+                                <Text
+                                    text="{history>/selectedSale/customerNationalId}"/>
+                            </VBox>
+
+                            <VBox
+                                width="15rem"
+                                class="sapUiSmallMargin">
+
+                                <Label text="Sigorta Planı"/>
+
+                                <Text
+                                    text="{history>/selectedSale/insurancePlanCodeSnapshot}"/>
+                            </VBox>
+
+                            <VBox
+                                width="15rem"
+                                class="sapUiSmallMargin">
+
+                                <Label text="Katılım Oranı"/>
+
+                                <ObjectNumber
+                                    number="{history>/selectedSale/contributionRateSnapshot}"
+                                    unit="%"/>
+                            </VBox>
+                        </HBox>
+                    </content>
+                </Panel>
+
+                <!-- ÜRÜNLER -->
+                <Panel
+                    headerText="Satılan İlaçlar"
+                    expandable="false"
+                    class="sapUiSmallMarginBottom">
+
+                    <content>
+                        <Table
+                            items="{history>/selectedSale/items}"
+                            noDataText="Satışa ait ilaç kaydı bulunamadı."
+                            inset="false">
+
+                            <columns>
+                                <Column width="25%">
+                                    <Text text="İlaç"/>
+                                </Column>
+
+                                <Column width="16%">
+                                    <Text text="Barkod"/>
+                                </Column>
+
+                                <Column width="13%">
+                                    <Text text="Parti"/>
+                                </Column>
+
+                                <Column width="10%" hAlign="Center">
+                                    <Text text="Miktar"/>
+                                </Column>
+
+                                <Column width="14%" hAlign="End">
+                                    <Text text="Birim Fiyat"/>
+                                </Column>
+
+                                <Column width="14%" hAlign="End">
+                                    <Text text="Satır Toplamı"/>
+                                </Column>
+                            </columns>
+
+                            <items>
+                                <ColumnListItem>
+                                    <cells>
+                                        <ObjectIdentifier
+                                            title="{history>medicineName}"
+                                            text="{history>expiryDate}"/>
+
+                                        <Text
+                                            text="{history>barcode}"/>
+
+                                        <Text
+                                            text="{history>lotNumber}"/>
+
+                                        <ObjectNumber
+                                            number="{history>quantity}"
+                                            unit="adet"/>
+
+                                        <ObjectNumber
+                                            number="{
+                                                path: 'history>unitSalePrice',
+                                                formatter: '.formatCurrency'
+                                            }"
+                                            unit="₺"/>
+
+                                        <ObjectNumber
+                                            number="{
+                                                path: 'history>lineAmount',
+                                                formatter: '.formatCurrency'
+                                            }"
+                                            unit="₺"
+                                            emphasized="true"/>
+                                    </cells>
+                                </ColumnListItem>
+                            </items>
+                        </Table>
+                    </content>
+                </Panel>
+
+                <!-- ÖDEME DAĞILIMI -->
+                <Panel
+                    headerText="Ödeme Dağılımı"
+                    expandable="false">
+
+                    <content>
+                        <VBox class="sapUiSmallMargin">
+
+                            <HBox
+                                justifyContent="SpaceBetween"
+                                class="sapUiTinyMarginBottom">
+
+                                <Text text="Brüt Tutar"/>
+
+                                <ObjectNumber
+                                    number="{
+                                        path: 'history>/selectedSale/grossAmount',
+                                        formatter: '.formatCurrency'
+                                    }"
+                                    unit="₺"/>
+                            </HBox>
+
+                            <HBox
+                                justifyContent="SpaceBetween"
+                                class="sapUiTinyMarginBottom">
+
+                                <Text text="SGK Referans Tutarı"/>
+
+                                <ObjectNumber
+                                    number="{
+                                        path: 'history>/selectedSale/sgkReferenceAmount',
+                                        formatter: '.formatCurrency'
+                                    }"
+                                    unit="₺"/>
+                            </HBox>
+
+                            <HBox
+                                justifyContent="SpaceBetween"
+                                class="sapUiTinyMarginBottom">
+
+                                <Text text="SGK Tarafından Karşılanan"/>
+
+                                <ObjectNumber
+                                    number="{
+                                        path: 'history>/selectedSale/insuranceCoveredAmount',
+                                        formatter: '.formatCurrency'
+                                    }"
+                                    unit="₺"
+                                    state="Success"/>
+                            </HBox>
+
+                            <HBox
+                                justifyContent="SpaceBetween"
+                                class="sapUiTinyMarginBottom">
+
+                                <Text text="Hasta Katılım Payı"/>
+
+                                <ObjectNumber
+                                    number="{
+                                        path: 'history>/selectedSale/patientContributionAmount',
+                                        formatter: '.formatCurrency'
+                                    }"
+                                    unit="₺"/>
+                            </HBox>
+
+                            <HBox
+                                justifyContent="SpaceBetween"
+                                class="sapUiTinyMarginBottom">
+
+                                <Text text="Fiyat Farkı"/>
+
+                                <ObjectNumber
+                                    number="{
+                                        path: 'history>/selectedSale/priceDifferenceAmount',
+                                        formatter: '.formatCurrency'
+                                    }"
+                                    unit="₺"/>
+                            </HBox>
+
+                            <HBox
+                                justifyContent="SpaceBetween"
+                                class="sapUiTinyMarginBottom">
+
+                                <Text text="Reçete Ücreti"/>
+
+                                <ObjectNumber
+                                    number="{
+                                        path: 'history>/selectedSale/prescriptionFeeAmount',
+                                        formatter: '.formatCurrency'
+                                    }"
+                                    unit="₺"/>
+                            </HBox>
+
+                            <Toolbar class="sapUiSmallMarginTop">
+                                <Title
+                                    text="Hastanın Ödediği"
+                                    level="H3"/>
+
+                                <ToolbarSpacer/>
+
+                                <ObjectNumber
+                                    number="{
+                                        path: 'history>/selectedSale/patientPayableAmount',
+                                        formatter: '.formatCurrency'
+                                    }"
+                                    unit="₺"
+                                    emphasized="true"
+                                    state="Success"/>
+                            </Toolbar>
+                        </VBox>
+                    </content>
+                </Panel>
+            </VBox>
+        </content>
+
+        <beginButton>
+            <Button
+                text="Yazdır / PDF Kaydet"
+                icon="sap-icon://print"
+                type="Emphasized"
+                press=".onPrintInvoice"/>
+        </beginButton>
+
+        <endButton>
+            <Button
+                text="Kapat"
+                press=".onCloseInvoice"/>
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

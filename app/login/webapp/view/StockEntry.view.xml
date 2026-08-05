@@ -1,0 +1,156 @@
+<mvc:View
+    controllerName="pharmatrack.login.controller.StockEntry"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+
+    <Page
+        title="Yeni Stok Girişi"
+        showNavButton="true"
+        navButtonPress=".onBack">
+
+        <content>
+            <VBox class="sapUiLargeMargin stockEntryPage">
+
+                <Title
+                    text="Şube Stok Giriş Talebi"
+                    level="H1" />
+
+                <Text
+                    text="İlaç, lot, son kullanma tarihi ve fiyat bilgilerini girin. Talep admin onayından sonra stoğa eklenecektir."
+                    class="sapUiSmallMarginBottom" />
+
+                <MessageStrip
+                    id="stockEntryMessage"
+                    visible="false"
+                    showIcon="true"
+                    class="sapUiMediumMarginBottom" />
+
+                <Panel
+                    headerText="İlaç Seçimi"
+                    class="sapUiMediumMarginBottom">
+
+                    <content>
+                        <VBox class="sapUiSmallMargin">
+
+                            <Label
+                                text="İlaç Ara"
+                                required="true" />
+
+                            <SearchField
+                                id="medicineSearchInput"
+                                placeholder="İlaç adı veya barkod yazın"
+                                search=".onSearchMedicine"
+                                liveChange=".onMedicineLiveChange"
+                                width="100%" />
+
+                            <List
+                                id="medicineResultList"
+                                visible="false"
+                                selectionChange=".onMedicineSelected"
+                                mode="SingleSelectMaster"
+                                class="sapUiSmallMarginTop">
+
+                                <StandardListItem
+                                    title="{medicine>name}"
+                                    description="{medicine>manufacturer}"
+                                    info="{medicine>barcode}"
+                                    type="Active" />
+
+                            </List>
+
+                            <ObjectStatus
+                                id="selectedMedicineStatus"
+                                visible="false"
+                                state="Success"
+                                class="sapUiSmallMarginTop" />
+
+                        </VBox>
+                    </content>
+                </Panel>
+
+                <Panel
+                    headerText="Parti ve Stok Bilgileri"
+                    class="sapUiMediumMarginBottom">
+
+                    <content>
+                        <VBox class="sapUiSmallMargin">
+
+                            <Label
+                                text="Lot Numarası"
+                                required="true" />
+
+                            <Input
+                                id="lotNumberInput"
+                                placeholder="Örn. LOT-KAD-2026-001" />
+
+                            <Label
+                                text="Son Kullanma Tarihi"
+                                required="true"
+                                class="sapUiSmallMarginTop" />
+
+                            <DatePicker
+                                id="expiryDateInput"
+                                displayFormat="dd.MM.yyyy"
+                                valueFormat="yyyy-MM-dd"
+                                width="100%" />
+
+                            <Label
+                                text="Miktar"
+                                required="true"
+                                class="sapUiSmallMarginTop" />
+
+                            <StepInput
+                                id="quantityInput"
+                                min="1"
+                                value="1"
+                                step="1"
+                                width="100%" />
+
+                            <Label
+                                text="Alış Fiyatı"
+                                required="true"
+                                class="sapUiSmallMarginTop" />
+
+                            <Input
+                                id="purchasePriceInput"
+                                type="Number"
+                                placeholder="0,00" />
+
+                            <Label
+                                text="Önerilen Satış Fiyatı"
+                                required="true"
+                                class="sapUiSmallMarginTop" />
+
+                            <Input
+                                id="salePriceInput"
+                                type="Number"
+                                placeholder="0,00" />
+
+                        </VBox>
+                    </content>
+                </Panel>
+
+                <HBox
+                    justifyContent="End"
+                    class="sapUiMediumMarginTop">
+
+                    <Button
+                        text="Temizle"
+                        type="Transparent"
+                        press=".onClear"
+                        class="sapUiTinyMarginEnd" />
+
+                    <Button
+                        id="submitStockEntryButton"
+                        text="Admin Onayına Gönder"
+                        type="Emphasized"
+                        icon="sap-icon://paper-plane"
+                        press=".onSubmit" />
+
+                </HBox>
+
+            </VBox>
+        </content>
+    </Page>
+</mvc:View>

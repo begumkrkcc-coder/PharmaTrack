@@ -1,0 +1,833 @@
+<mvc:View
+    controllerName="pharmatrack.login.controller.App"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m"
+    displayBlock="true">
+
+    <App id="loginApp">
+
+        <Page
+            id="loginPage"
+            enableScrolling="true"
+            class="pharmaLoginPage">
+
+            <content>
+
+                <VBox class="pharmaScreen">
+
+                    <!-- =====================================================
+                         KARŞILAMA EKRANI
+                         ===================================================== -->
+
+                    <VBox
+                        id="welcomeArea"
+                        visible="true"
+                        class="welcomeContent"
+                        alignItems="Center">
+
+                        <VBox
+                            class="brandSection"
+                            alignItems="Center">
+
+                            <HBox
+                                class="logoBox"
+                                alignItems="Center"
+                                justifyContent="Center">
+
+                                <core:Icon
+                                    src="sap-icon://add"
+                                    class="logoCross"/>
+
+                                <core:Icon
+                                    src="sap-icon://product"
+                                    class="logoCapsule"/>
+
+                            </HBox>
+
+                            <Title
+                                text="PharmaTrack"
+                                level="H1"
+                                class="brandTitle"/>
+
+                            <Text
+                                text="Eczane Yönetim Sistemi"
+                                class="brandSubtitle"/>
+
+                            <Text
+                                text="Stok, şube ve satış süreçlerinizi tek noktadan yönetin."
+                                textAlign="Center"
+                                class="brandDescription"/>
+
+                            <Button
+                                text="Giriş Yap"
+                                icon="sap-icon://log"
+                                type="Emphasized"
+                                press=".onOpenLogin"
+                                class="welcomeLoginButton"/>
+
+                        </VBox>
+
+                        <HBox
+                            class="featureArea"
+                            justifyContent="Center"
+                            wrap="Wrap">
+
+                            <!-- STOK YÖNETİMİ -->
+
+                            <VBox class="featureCard">
+
+                                <HBox
+                                    class="featureCardContent"
+                                    alignItems="Start">
+
+                                    <HBox
+                                        class="featureIconBox"
+                                        alignItems="Center"
+                                        justifyContent="Center">
+
+                                        <core:Icon
+                                            src="sap-icon://inventory"
+                                            class="featureIcon"/>
+
+                                    </HBox>
+
+                                    <VBox class="featureTextArea">
+
+                                        <Title
+                                            text="Stok Yönetimi"
+                                            level="H4"
+                                            class="featureTitle"/>
+
+                                        <Text
+                                            text="İlaç stoklarını, partileri ve son kullanma tarihlerini kolayca yönetin."
+                                            class="featureText"/>
+
+                                    </VBox>
+
+                                </HBox>
+
+                            </VBox>
+
+                            <!-- ŞUBE YÖNETİMİ -->
+
+                            <VBox class="featureCard">
+
+                                <HBox
+                                    class="featureCardContent"
+                                    alignItems="Start">
+
+                                    <HBox
+                                        class="featureIconBox"
+                                        alignItems="Center"
+                                        justifyContent="Center">
+
+                                        <core:Icon
+                                            src="sap-icon://building"
+                                            class="featureIcon"/>
+
+                                    </HBox>
+
+                                    <VBox class="featureTextArea">
+
+                                        <Title
+                                            text="Şube Yönetimi"
+                                            level="H4"
+                                            class="featureTitle"/>
+
+                                        <Text
+                                            text="Tüm şubelerin stok durumunu ve operasyonlarını anlık olarak takip edin."
+                                            class="featureText"/>
+
+                                    </VBox>
+
+                                </HBox>
+
+                            </VBox>
+
+                            <!-- SATIŞ VE RAPORLAMA -->
+
+                            <VBox class="featureCard">
+
+                                <HBox
+                                    class="featureCardContent"
+                                    alignItems="Start">
+
+                                    <HBox
+                                        class="featureIconBox"
+                                        alignItems="Center"
+                                        justifyContent="Center">
+
+                                        <core:Icon
+                                            src="sap-icon://business-objects-experience"
+                                            class="featureIcon"/>
+
+                                    </HBox>
+
+                                    <VBox class="featureTextArea">
+
+                                        <Title
+                                            text="Satış ve Raporlama"
+                                            level="H4"
+                                            class="featureTitle"/>
+
+                                        <Text
+                                            text="Satışları, kârlılığı ve şube performansını detaylı raporlarla analiz edin."
+                                            class="featureText"/>
+
+                                    </VBox>
+
+                                </HBox>
+
+                            </VBox>
+
+                        </HBox>
+
+                        <HBox
+                            class="welcomeSecurityBanner"
+                            alignItems="Center"
+                            justifyContent="SpaceBetween">
+
+                            <HBox
+                                class="welcomeSecurityContent"
+                                alignItems="Center">
+
+                                <HBox
+                                    class="securityBannerIconBox"
+                                    alignItems="Center"
+                                    justifyContent="Center">
+
+                                    <core:Icon
+                                        src="sap-icon://shield"
+                                        class="securityBannerIcon"/>
+
+                                </HBox>
+
+                                <Text
+                                    text="Güvenli, hızlı ve etkili eczane yönetimi için PharmaTrack yanınızda."
+                                    class="securityBannerText"/>
+
+                            </HBox>
+
+                            <HBox
+                                class="securityLockBox"
+                                alignItems="Center"
+                                justifyContent="Center">
+
+                                <core:Icon
+                                    src="sap-icon://locked"
+                                    class="securityLockIcon"/>
+
+                            </HBox>
+
+                        </HBox>
+
+                        <VBox
+                            id="welcomeFooter"
+                            class="newWelcomeFooter"
+                            alignItems="Center">
+
+                            <HBox
+                                class="dataSourceArea"
+                                alignItems="Center"
+                                justifyContent="Center">
+
+                                <core:Icon
+                                    src="sap-icon://shield"
+                                    class="dataSourceIcon"/>
+
+                                <Text
+                                    text="Gerçek TİTCK ilaç verileri ile çalışan çok şubeli eczane yönetim sistemi."
+                                    class="dataSourceText"/>
+
+                            </HBox>
+
+                            <Text
+                                text="© 2026 PharmaTrack. Tüm hakları saklıdır."
+                                class="copyrightText"/>
+
+                        </VBox>
+
+                    </VBox>
+
+                    <!-- =====================================================
+                         ORTAK DASHBOARD KABUĞU
+                         ===================================================== -->
+
+                    <VBox
+                        id="dashboardArea"
+                        visible="false"
+                        class="dashboardScreen">
+
+                        <!-- DASHBOARD ÜST BAR -->
+
+                        <HBox
+                            class="dashboardHeader"
+                            alignItems="Center"
+                            justifyContent="SpaceBetween">
+
+                            <HBox
+                                class="dashboardBrand"
+                                alignItems="Center">
+
+                                <HBox
+                                    class="dashboardLogo"
+                                    alignItems="Center"
+                                    justifyContent="Center">
+
+                                    <core:Icon
+                                        src="sap-icon://add"
+                                        class="dashboardLogoIcon"/>
+
+                                </HBox>
+
+                                <VBox>
+
+                                    <Title
+                                        text="PharmaTrack"
+                                        level="H2"
+                                        class="dashboardBrandTitle"/>
+
+                                    <Text
+                                        text="Eczane Yönetim Sistemi"
+                                        class="dashboardBrandSubtitle"/>
+
+                                </VBox>
+
+                            </HBox>
+
+                            <HBox
+                                class="dashboardUserArea"
+                                alignItems="Center">
+
+                                <VBox
+                                    class="dashboardUserInfo"
+                                    alignItems="End">
+
+                                    <Text
+                                        id="dashboardUserName"
+                                        text="Kullanıcı"
+                                        class="dashboardUserName"/>
+
+                                    <Text
+                                        id="dashboardUserRole"
+                                        text="Rol"
+                                        class="dashboardUserRole"/>
+
+                                </VBox>
+
+                                <Button
+                                    icon="sap-icon://log"
+                                    text="Çıkış"
+                                    type="Transparent"
+                                    press=".onLogout"
+                                    class="logoutButton"/>
+
+                            </HBox>
+
+                        </HBox>
+
+                        <!-- =================================================
+                             YÖNETİCİ ANA PANELİ
+                             ================================================= -->
+
+                        <VBox
+                            id="adminDashboardArea"
+                            visible="false"
+                            class="dashboardContent adminDashboardContent">
+
+                            <Text
+                                id="adminDashboardGreeting"
+                                text="Merhaba, PharmaTrack Yönetici • Tüm Şubeler"
+                                class="dashboardGreeting"/>
+
+                            <Title
+                                text="Yönetim Paneli"
+                                level="H1"
+                                class="dashboardTitle"/>
+
+                            <Text
+                                text="Üç şubenin operasyonlarını tek merkezden yönetin."
+                                class="dashboardDescription"/>
+
+                            <HBox
+                                class="dashboardCardGrid adminMainCardGrid"
+                                wrap="Wrap">
+
+                                <!-- ŞUBELER -->
+
+                                <VBox class="dashboardCard dashboardPrimaryCard">
+
+                                    <HBox
+                                        class="dashboardCardIconBox"
+                                        alignItems="Center"
+                                        justifyContent="Center">
+
+                                        <core:Icon
+                                            src="sap-icon://building"
+                                            class="dashboardCardIcon"/>
+
+                                    </HBox>
+
+                                    <Title
+                                        text="Şubeler"
+                                        level="H3"
+                                        class="dashboardCardTitle"/>
+
+                                    <Text
+                                        text="Üsküdar, Kadıköy ve Beşiktaş şubelerinin satış, stok ve operasyon durumlarını görüntüleyin."
+                                        class="dashboardCardText"/>
+
+                                    <Button
+                                        text="Şubeleri Aç"
+                                        type="Transparent"
+                                        press=".onOpenAdminBranches"
+                                        class="dashboardCardButton"/>
+
+                                </VBox>
+
+                                <!-- ONAY MERKEZİ -->
+
+                                <VBox class="dashboardCard">
+
+                                    <HBox
+                                        class="dashboardCardIconBox"
+                                        alignItems="Center"
+                                        justifyContent="Center">
+
+                                        <core:Icon
+                                            src="sap-icon://task"
+                                            class="dashboardCardIcon"/>
+
+                                    </HBox>
+
+                                    <Title
+                                        text="Onay Merkezi"
+                                        level="H3"
+                                        class="dashboardCardTitle"/>
+
+                                    <Text
+                                        text="Stok, transfer, iade ve fiyat değişikliği taleplerini inceleyip onaylayın."
+                                        class="dashboardCardText"/>
+
+                                    <Button
+                                        text="Onayları Aç"
+                                        type="Transparent"
+                                        press=".onOpenApprovalCenter"
+                                        class="dashboardCardButton"/>
+
+                                </VBox>
+
+                                <!-- BİLDİRİM MERKEZİ -->
+
+                                <VBox class="dashboardCard">
+
+                                    <HBox
+                                        class="dashboardCardIconBox"
+                                        alignItems="Center"
+                                        justifyContent="Center">
+
+                                        <core:Icon
+                                            src="sap-icon://bell"
+                                            class="dashboardCardIcon"/>
+
+                                    </HBox>
+
+                                    <Title
+                                        text="Bildirim Merkezi"
+                                        level="H3"
+                                        class="dashboardCardTitle"/>
+
+                                    <Text
+                                        text="Kritik stok, yaklaşan son kullanma tarihi ve bekleyen talepleri takip edin."
+                                        class="dashboardCardText"/>
+
+                                    <Button
+                                        text="Bildirimleri Aç"
+                                        type="Transparent"
+                                        press=".onOpenNotificationCenter"
+                                        class="dashboardCardButton"/>
+
+                                </VBox>
+
+                                <!-- SATIN ALMA VE TEDARİK -->
+
+                                <VBox class="dashboardCard">
+
+                                    <HBox
+                                        class="dashboardCardIconBox"
+                                        alignItems="Center"
+                                        justifyContent="Center">
+
+                                        <core:Icon
+                                            src="sap-icon://shipping-status"
+                                            class="dashboardCardIcon"/>
+
+                                    </HBox>
+
+                                    <Title
+                                        text="Satın Alma ve Tedarik"
+                                        level="H3"
+                                        class="dashboardCardTitle"/>
+
+                                    <Text
+                                        text="Tedarikçileri yönetin, yeni satın alma siparişi oluşturun ve teslimatları takip edin."
+                                        class="dashboardCardText"/>
+
+                                    <Button
+                                        text="Satın Alma Yönetimini Aç"
+                                        type="Transparent"
+                                        press=".onOpenProcurement"
+                                        class="dashboardCardButton"/>
+
+                                </VBox>
+
+                            </HBox>
+
+                        </VBox>
+
+                        <!-- =================================================
+                             ŞUBE ANA PANELİ
+                             ================================================= -->
+
+                        <VBox
+                            id="branchDashboardArea"
+                            visible="false"
+                            class="dashboardContent">
+
+                            <Text
+                                id="dashboardGreeting"
+                                text="Merhaba"
+                                class="dashboardGreeting"/>
+
+                            <Title
+                                text="Bugün hangi işlemi yapmak istersiniz?"
+                                level="H1"
+                                class="dashboardTitle"/>
+
+                            <Text
+                                text="Satış, stok ve şube performansı işlemlerine aşağıdaki modüllerden ulaşabilirsiniz."
+                                class="dashboardDescription"/>
+
+                            <HBox
+                                class="dashboardCardGrid"
+                                wrap="Wrap">
+
+                                <!-- YENİ SATIŞ -->
+
+                                <VBox class="dashboardCard dashboardPrimaryCard">
+
+                                    <HBox
+                                        class="dashboardCardIconBox"
+                                        alignItems="Center"
+                                        justifyContent="Center">
+
+                                        <core:Icon
+                                            src="sap-icon://cart"
+                                            class="dashboardCardIcon"/>
+
+                                    </HBox>
+
+                                    <Title
+                                        text="Yeni Satış"
+                                        level="H3"
+                                        class="dashboardCardTitle"/>
+
+                                    <Text
+                                        text="Barkod okutarak hızlı ve güvenli bir satış işlemi başlatın."
+                                        class="dashboardCardText"/>
+
+                                    <Button
+                                        text="Satışa Başla"
+                                        type="Transparent"
+                                        press=".onOpenSales"
+                                        class="dashboardCardButton"/>
+
+                                </VBox>
+
+                                <!-- PARTİ VE STOK -->
+
+                                <VBox class="dashboardCard">
+
+                                    <HBox
+                                        class="dashboardCardIconBox"
+                                        alignItems="Center"
+                                        justifyContent="Center">
+
+                                        <core:Icon
+                                            src="sap-icon://inventory"
+                                            class="dashboardCardIcon"/>
+
+                                    </HBox>
+
+                                    <Title
+                                        text="Parti ve Stok"
+                                        level="H3"
+                                        class="dashboardCardTitle"/>
+
+                                    <Text
+                                        text="İlaç, barkod, lot, son kullanma tarihi, raf ve stok bilgilerini görüntüleyin."
+                                        class="dashboardCardText"/>
+
+                                    <Button
+                                        text="Parti ve Stokları Aç"
+                                        type="Transparent"
+                                        press=".onOpenBatches"
+                                        class="dashboardCardButton"/>
+
+                                </VBox>
+
+                                <!-- SATIŞ GEÇMİŞİ -->
+
+                                <VBox class="dashboardCard">
+
+                                    <HBox
+                                        class="dashboardCardIconBox"
+                                        alignItems="Center"
+                                        justifyContent="Center">
+
+                                        <core:Icon
+                                            src="sap-icon://sales-order"
+                                            class="dashboardCardIcon"/>
+
+                                    </HBox>
+
+                                    <Title
+                                        text="Satış Geçmişi"
+                                        level="H3"
+                                        class="dashboardCardTitle"/>
+
+                                    <Text
+                                        text="Tamamlanan satışları, işlem tutarlarını, tarihleri ve satış türlerini inceleyin."
+                                        class="dashboardCardText"/>
+
+                                    <Button
+                                        text="Satış Geçmişini Aç"
+                                        type="Transparent"
+                                        press=".onOpenSalesHistory"
+                                        class="dashboardCardButton"/>
+
+                                </VBox>
+
+                                <!-- ANALİZ PANELİ -->
+
+                                <VBox class="dashboardCard">
+
+                                    <HBox
+                                        class="dashboardCardIconBox"
+                                        alignItems="Center"
+                                        justifyContent="Center">
+
+                                        <core:Icon
+                                            src="sap-icon://business-objects-experience"
+                                            class="dashboardCardIcon"/>
+
+                                    </HBox>
+
+                                    <Title
+                                        text="Analiz Paneli"
+                                        level="H3"
+                                        class="dashboardCardTitle"/>
+
+                                    <Text
+                                        text="Ciro, satış sayısı, kritik stok, yaklaşan SKT ve şube performansını analiz edin."
+                                        class="dashboardCardText"/>
+
+                                    <Button
+                                        text="Analiz Panelini Aç"
+                                        type="Transparent"
+                                        press=".onOpenReports"
+                                        class="dashboardCardButton"/>
+
+                                </VBox>
+
+                            </HBox>
+
+                        </VBox>
+
+                        <Text
+                            text="© 2026 PharmaTrack"
+                            class="dashboardFooter"/>
+
+                    </VBox>
+
+                </VBox>
+
+            </content>
+
+        </Page>
+
+    </App>
+
+    <!-- =====================================================
+         GİRİŞ PENCERESİ
+         ===================================================== -->
+
+    <Dialog
+        id="loginDialog"
+        contentWidth="32rem"
+        class="ptLoginDialog">
+
+        <customHeader>
+
+            <Toolbar class="ptDialogCustomHeader">
+
+                <VBox class="ptDialogHeaderTexts">
+
+                    <Title
+                        text="Hesabınıza Giriş Yapın"
+                        level="H2"
+                        class="ptDialogHeaderTitle"/>
+
+                    <Text
+                        text="Kullanıcı bilgilerinizle devam edin."
+                        class="ptDialogHeaderDescription"/>
+
+                </VBox>
+
+            </Toolbar>
+
+        </customHeader>
+
+        <content>
+
+            <VBox
+                width="100%"
+                class="ptDialogContent">
+
+                <!-- KULLANICI ADI -->
+
+                <VBox
+                    width="100%"
+                    class="ptDialogFieldGroup">
+
+                    <HBox
+                        width="100%"
+                        alignItems="Center"
+                        class="ptDialogLabelRow">
+
+                        <core:Icon
+                            src="sap-icon://person-placeholder"
+                            class="ptDialogLabelIcon"/>
+
+                        <Label
+                            text="Kullanıcı Adı"
+                            labelFor="usernameInput"
+                            class="ptDialogLabel"/>
+
+                    </HBox>
+
+                    <Input
+                        id="usernameInput"
+                        width="100%"
+                        placeholder="Kullanıcı adınızı girin"
+                        submit=".onLogin"
+                        class="ptDialogInput"/>
+
+                </VBox>
+
+                <!-- ŞİFRE -->
+
+                <VBox
+                    width="100%"
+                    class="ptDialogFieldGroup">
+
+                    <HBox
+                        width="100%"
+                        alignItems="Center"
+                        class="ptDialogLabelRow">
+
+                        <core:Icon
+                            src="sap-icon://locked"
+                            class="ptDialogLabelIcon"/>
+
+                        <Label
+                            text="Şifre"
+                            labelFor="passwordInput"
+                            class="ptDialogLabel"/>
+
+                    </HBox>
+
+                    <Input
+                        id="passwordInput"
+                        width="100%"
+                        type="Password"
+                        placeholder="Şifrenizi girin"
+                        submit=".onLogin"
+                        class="ptDialogInput"/>
+
+                </VBox>
+
+                <!-- SEÇENEKLER -->
+
+                <HBox
+                    width="100%"
+                    alignItems="Center"
+                    justifyContent="SpaceBetween"
+                    class="ptDialogOptions">
+
+                    <CheckBox
+                        id="rememberCheckBox"
+                        text="Beni Hatırla"/>
+
+                    <Link
+                        text="Şifremi Unuttum?"
+                        press=".onForgotPassword"
+                        class="ptDialogForgotLink"/>
+
+                </HBox>
+
+                <!-- HATA MESAJI -->
+
+                <MessageStrip
+                    id="errorMessage"
+                    text="Kullanıcı adı veya şifre hatalı."
+                    type="Error"
+                    showIcon="true"
+                    visible="false"
+                    class="ptDialogMessage"/>
+
+                <!-- GİRİŞ BUTONU -->
+
+                <Button
+                    id="loginButton"
+                    width="100%"
+                    text="Giriş Yap"
+                    icon="sap-icon://log"
+                    type="Emphasized"
+                    press=".onLogin"
+                    class="ptDialogLoginButton"/>
+
+                <!-- GÜVENLİK -->
+
+                <HBox
+                    width="100%"
+                    alignItems="Center"
+                    justifyContent="Center"
+                    class="ptDialogSecurity">
+
+                    <core:Icon
+                        src="sap-icon://locked"
+                        class="ptDialogSecurityIcon"/>
+
+                    <Text
+                        text="Güvenli bağlantı ile korunmaktadır."
+                        class="ptDialogSecurityText"/>
+
+                </HBox>
+
+            </VBox>
+
+        </content>
+
+        <endButton>
+
+            <Button
+                text="Kapat"
+                press=".onCloseLogin"/>
+
+        </endButton>
+
+    </Dialog>
+
+</mvc:View>

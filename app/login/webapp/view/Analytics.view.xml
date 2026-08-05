@@ -1,0 +1,565 @@
+<mvc:View
+    controllerName="pharmatrack.login.controller.Analytics"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m"
+    displayBlock="true">
+
+    <Page
+        title="Analiz Paneli"
+        showNavButton="true"
+        navButtonPress=".onBack"
+        busy="{analytics>/busy}"
+        class="analyticsPage">
+
+        <content>
+            <VBox class="analyticsContent">
+
+                <!-- ÜST BAŞLIK -->
+                <HBox
+                    justifyContent="SpaceBetween"
+                    alignItems="Center"
+                    wrap="Wrap"
+                    class="analyticsHero">
+
+                    <VBox class="analyticsHeroText">
+                        <Text
+                            text="PHARMATRACK RAPORLAMA"
+                            class="analyticsEyebrow"/>
+
+                        <Title
+                            text="Satış ve Stok Analizleri"
+                            level="H1"
+                            class="analyticsMainTitle"/>
+
+                        <Text
+                            text="Günlük satış performansını, kârlılığı ve stok durumunu tek ekrandan takip edin."
+                            class="analyticsSubtitle"/>
+                    </VBox>
+
+                    <HBox
+    alignItems="Center"
+    wrap="Wrap"
+    class="analyticsHeroActions">
+
+    <Button
+        text="Verileri Yenile"
+        icon="sap-icon://refresh"
+        type="Transparent"
+        press=".onRefresh"
+        class="analyticsRefreshButton"/>
+
+    <Button
+        text="Gün Sonu Raporu Oluştur"
+        icon="sap-icon://document-text"
+        type="Emphasized"
+        press=".onGenerateDailyReport"
+        class="analyticsDailyReportButton"/>
+
+</HBox>
+                </HBox>
+
+                <!-- ÖZET KARTLARI -->
+                <VBox class="analyticsSection">
+
+                    <Title
+                        text="Günlük Özet"
+                        level="H2"
+                        class="analyticsSectionTitle"/>
+
+                    <Text
+                        text="Bugüne ait temel satış ve gelir göstergeleri"
+                        class="analyticsSectionDescription"/>
+
+                    <HBox
+                        wrap="Wrap"
+                        class="analyticsSummaryGrid">
+
+                        <VBox class="analyticsMetricCard">
+                            <HBox
+                                alignItems="Center"
+                                justifyContent="SpaceBetween">
+
+                                <VBox>
+                                    <Text
+                                        text="Bugünkü Ciro"
+                                        class="analyticsMetricLabel"/>
+
+                                    <ObjectNumber
+                                        number="{analytics>/summary/totalRevenue}"
+                                        unit="₺"
+                                        emphasized="true"
+                                        class="analyticsMetricValue"/>
+                                </VBox>
+
+                                <HBox
+                                    alignItems="Center"
+                                    justifyContent="Center"
+                                    class="analyticsMetricIconBox">
+
+                                    <core:Icon
+                                        src="sap-icon://money-bills"
+                                        class="analyticsMetricIcon"/>
+                                </HBox>
+                            </HBox>
+                        </VBox>
+
+                        <VBox class="analyticsMetricCard">
+                            <HBox
+                                alignItems="Center"
+                                justifyContent="SpaceBetween">
+
+                                <VBox>
+                                    <Text
+                                        text="Satış Sayısı"
+                                        class="analyticsMetricLabel"/>
+
+                                    <ObjectNumber
+                                        number="{analytics>/summary/totalSalesCount}"
+                                        emphasized="true"
+                                        class="analyticsMetricValue"/>
+                                </VBox>
+
+                                <HBox
+                                    alignItems="Center"
+                                    justifyContent="Center"
+                                    class="analyticsMetricIconBox">
+
+                                    <core:Icon
+                                        src="sap-icon://sales-order"
+                                        class="analyticsMetricIcon"/>
+                                </HBox>
+                            </HBox>
+                        </VBox>
+
+                        <VBox class="analyticsMetricCard">
+                            <HBox
+                                alignItems="Center"
+                                justifyContent="SpaceBetween">
+
+                                <VBox>
+                                    <Text
+                                        text="Satılan Ürün"
+                                        class="analyticsMetricLabel"/>
+
+                                    <ObjectNumber
+                                        number="{analytics>/summary/totalItemsSold}"
+                                        emphasized="true"
+                                        class="analyticsMetricValue"/>
+                                </VBox>
+
+                                <HBox
+                                    alignItems="Center"
+                                    justifyContent="Center"
+                                    class="analyticsMetricIconBox">
+
+                                    <core:Icon
+                                        src="sap-icon://product"
+                                        class="analyticsMetricIcon"/>
+                                </HBox>
+                            </HBox>
+                        </VBox>
+
+                        <VBox class="analyticsMetricCard">
+                            <HBox
+                                alignItems="Center"
+                                justifyContent="SpaceBetween">
+
+                                <VBox>
+                                    <Text
+                                        text="Toplam Kâr"
+                                        class="analyticsMetricLabel"/>
+
+                                    <ObjectNumber
+                                        number="{analytics>/summary/totalProfit}"
+                                        unit="₺"
+                                        emphasized="true"
+                                        state="Success"
+                                        class="analyticsMetricValue"/>
+                                </VBox>
+
+                                <HBox
+                                    alignItems="Center"
+                                    justifyContent="Center"
+                                    class="analyticsMetricIconBox">
+
+                                    <core:Icon
+                                        src="sap-icon://line-chart"
+                                        class="analyticsMetricIcon"/>
+                                </HBox>
+                            </HBox>
+                        </VBox>
+
+                    </HBox>
+                </VBox>
+
+                <!-- DETAY ALANI -->
+                <HBox
+                    wrap="Wrap"
+                    class="analyticsDetailGrid">
+
+                    <!-- STOK DURUMU -->
+                    <VBox class="analyticsPanel">
+
+                        <HBox
+                            alignItems="Center"
+                            class="analyticsPanelHeader">
+
+                            <HBox
+                                alignItems="Center"
+                                justifyContent="Center"
+                                class="analyticsPanelIconBox">
+
+                                <core:Icon
+                                    src="sap-icon://inventory"
+                                    class="analyticsPanelIcon"/>
+                            </HBox>
+
+                            <VBox>
+                                <Title
+                                    text="Stok Durumu"
+                                    level="H3"
+                                    class="analyticsPanelTitle"/>
+
+                                <Text
+                                    text="Dikkat edilmesi gereken stoklar"
+                                    class="analyticsPanelSubtitle"/>
+                            </VBox>
+                        </HBox>
+
+                        <VBox class="analyticsDataList">
+
+                            <HBox
+                                justifyContent="SpaceBetween"
+                                alignItems="Center"
+                                class="analyticsDataRow">
+
+                                <HBox alignItems="Center">
+                                    <core:Icon
+                                        src="sap-icon://alert"
+                                        class="analyticsRowIcon analyticsErrorIcon"/>
+
+                                    <Text
+                                        text="Kritik stok"
+                                        class="analyticsRowLabel"/>
+                                </HBox>
+
+                                <ObjectNumber
+                                    number="{analytics>/summary/criticalStockCount}"
+                                    state="Error"
+                                    class="analyticsRowValue"/>
+                            </HBox>
+
+                            <HBox
+                                justifyContent="SpaceBetween"
+                                alignItems="Center"
+                                class="analyticsDataRow">
+
+                                <HBox alignItems="Center">
+                                    <core:Icon
+                                        src="sap-icon://lateness"
+                                        class="analyticsRowIcon analyticsWarningIcon"/>
+
+                                    <Text
+                                        text="SKT yaklaşan parti"
+                                        class="analyticsRowLabel"/>
+                                </HBox>
+
+                                <ObjectNumber
+                                    number="{analytics>/summary/nearExpiryBatchCount}"
+                                    state="Warning"
+                                    class="analyticsRowValue"/>
+                            </HBox>
+
+                            <HBox
+                                justifyContent="SpaceBetween"
+                                alignItems="Center"
+                                class="analyticsDataRow">
+
+                                <HBox alignItems="Center">
+                                    <core:Icon
+                                        src="sap-icon://decline"
+                                        class="analyticsRowIcon analyticsErrorIcon"/>
+
+                                    <Text
+                                        text="Süresi dolmuş parti"
+                                        class="analyticsRowLabel"/>
+                                </HBox>
+
+                                <ObjectNumber
+                                    number="{analytics>/summary/expiredBatchCount}"
+                                    state="Error"
+                                    class="analyticsRowValue"/>
+                            </HBox>
+
+                        </VBox>
+                    </VBox>
+
+                    <!-- SATIŞ PERFORMANSI -->
+                    <VBox class="analyticsPanel">
+
+                        <HBox
+                            alignItems="Center"
+                            class="analyticsPanelHeader">
+
+                            <HBox
+                                alignItems="Center"
+                                justifyContent="Center"
+                                class="analyticsPanelIconBox">
+
+                                <core:Icon
+                                    src="sap-icon://business-objects-experience"
+                                    class="analyticsPanelIcon"/>
+                            </HBox>
+
+                            <VBox>
+                                <Title
+                                    text="Satış Performansı"
+                                    level="H3"
+                                    class="analyticsPanelTitle"/>
+
+                                <Text
+                                    text="Satış ve kârlılık göstergeleri"
+                                    class="analyticsPanelSubtitle"/>
+                            </VBox>
+                        </HBox>
+
+                        <VBox class="analyticsDataList">
+
+                            <VBox class="analyticsFeatureRow">
+                                <Text
+                                    text="En Çok Satılan İlaç"
+                                    class="analyticsFeatureLabel"/>
+
+                                <Text
+                                    text="{analytics>/summary/topSellingMedicine}"
+                                    class="analyticsFeatureValue"/>
+                            </VBox>
+
+                            <HBox
+                                justifyContent="SpaceBetween"
+                                alignItems="Center"
+                                class="analyticsDataRow">
+
+                                <Text
+                                    text="Ortalama kâr marjı"
+                                    class="analyticsRowLabel"/>
+
+                                <ObjectNumber
+                                    number="{analytics>/summary/averageProfitMargin}"
+                                    unit="%"
+                                    state="Success"
+                                    class="analyticsRowValue"/>
+                            </HBox>
+
+                            <HBox
+                                justifyContent="SpaceBetween"
+                                alignItems="Center"
+                                class="analyticsDataRow">
+
+                                <Text
+                                    text="Toplam maliyet"
+                                    class="analyticsRowLabel"/>
+
+                                <ObjectNumber
+                                    number="{analytics>/summary/totalCost}"
+                                    unit="₺"
+                                    class="analyticsRowValue"/>
+                            </HBox>
+
+                        </VBox>
+                    </VBox>
+
+                </HBox>
+<VBox
+    visible="{analytics>/reportCreated}"
+    class="analyticsDailyReportCard">
+
+    <HBox
+        alignItems="Center"
+        class="analyticsPanelHeader">
+
+        <HBox
+            alignItems="Center"
+            justifyContent="Center"
+            class="analyticsPanelIconBox">
+
+            <core:Icon
+                src="sap-icon://document-text"
+                class="analyticsPanelIcon"/>
+
+        </HBox>
+
+        <VBox>
+
+            <Title
+                text="Gün Sonu Raporu"
+                level="H2"
+                class="analyticsPanelTitle"/>
+
+            <Text
+                text="{analytics>/report/branchName}"
+                class="analyticsPanelSubtitle"/>
+
+        </VBox>
+
+    </HBox>
+
+    <HBox
+        wrap="Wrap"
+        class="analyticsReportInfoGrid">
+
+        <VBox class="analyticsReportInfo">
+
+            <Text
+                text="Rapor Tarihi"
+                class="analyticsFeatureLabel"/>
+
+            <Text
+                text="{analytics>/report/reportDate}"
+                class="analyticsFeatureValue"/>
+
+        </VBox>
+
+        <VBox class="analyticsReportInfo">
+
+            <Text
+                text="Oluşturan"
+                class="analyticsFeatureLabel"/>
+
+            <Text
+                text="{analytics>/report/createdBy}"
+                class="analyticsFeatureValue"/>
+
+        </VBox>
+
+        <VBox class="analyticsReportInfo">
+
+            <Text
+                text="Oluşturulma Zamanı"
+                class="analyticsFeatureLabel"/>
+
+            <Text
+                text="{analytics>/report/createdAt}"
+                class="analyticsFeatureValue"/>
+
+        </VBox>
+
+    </HBox>
+
+    <HBox
+        wrap="Wrap"
+        class="analyticsReportMetricGrid">
+
+        <VBox class="analyticsReportMetric">
+
+            <Text
+                text="Satış Sayısı"
+                class="analyticsMetricLabel"/>
+
+            <ObjectNumber
+                number="{analytics>/report/totalSalesCount}"
+                emphasized="true"/>
+
+        </VBox>
+
+        <VBox class="analyticsReportMetric">
+
+            <Text
+                text="Satılan Ürün"
+                class="analyticsMetricLabel"/>
+
+            <ObjectNumber
+                number="{analytics>/report/totalItemsSold}"
+                emphasized="true"/>
+
+        </VBox>
+
+        <VBox class="analyticsReportMetric">
+
+            <Text
+                text="Toplam Ciro"
+                class="analyticsMetricLabel"/>
+
+            <ObjectNumber
+                number="{analytics>/report/totalRevenue}"
+                unit="₺"
+                emphasized="true"/>
+
+        </VBox>
+
+        <VBox class="analyticsReportMetric">
+
+            <Text
+                text="Toplam Maliyet"
+                class="analyticsMetricLabel"/>
+
+            <ObjectNumber
+                number="{analytics>/report/totalCost}"
+                unit="₺"
+                emphasized="true"/>
+
+        </VBox>
+
+        <VBox class="analyticsReportMetric">
+
+            <Text
+                text="Toplam Kâr"
+                class="analyticsMetricLabel"/>
+
+            <ObjectNumber
+                number="{analytics>/report/totalProfit}"
+                unit="₺"
+                state="Success"
+                emphasized="true"/>
+
+        </VBox>
+
+        <VBox class="analyticsReportMetric">
+
+            <Text
+                text="Kâr Marjı"
+                class="analyticsMetricLabel"/>
+
+            <ObjectNumber
+                number="{analytics>/report/averageProfitMargin}"
+                unit="%"
+                state="Success"
+                emphasized="true"/>
+
+        </VBox>
+
+    </HBox>
+
+    <VBox class="analyticsReportFooter">
+
+        <Text
+            text="En Çok Satılan İlaç"
+            class="analyticsFeatureLabel"/>
+
+        <Title
+            text="{analytics>/report/topSellingMedicine}"
+            level="H3"
+            class="analyticsFeatureValue"/>
+
+        <ObjectStatus
+            text="Gün sonu raporu başarıyla kaydedildi"
+            state="Success"
+            icon="sap-icon://accept"/>
+
+    </VBox>
+
+</VBox>
+                <!-- BİLGİ MESAJI -->
+                <MessageStrip
+                    text="{analytics>/message}"
+                    type="{analytics>/messageType}"
+                    showIcon="true"
+                    showCloseButton="true"
+                    visible="{analytics>/messageVisible}"
+                    class="analyticsMessage"/>
+
+            </VBox>
+        </content>
+    </Page>
+</mvc:View>

@@ -1,0 +1,400 @@
+/* =========================================================
+   PHARMATRACK — ONAY MERKEZİ
+   ========================================================= */
+
+.approvalPage,
+.approvalPage .sapMPageBgStandard,
+.approvalPage .sapMPageEnableScrolling,
+.approvalPage section {
+    background: #f5faf7 !important;
+}
+
+.approvalShell {
+    width: 100% !important;
+    max-width: 1180px !important;
+    min-height: 100vh !important;
+
+    margin: 0 auto !important;
+    padding: 2rem 2rem 4rem !important;
+    box-sizing: border-box !important;
+}
+
+.approvalTopBar {
+    width: 100% !important;
+    margin-bottom: 2.7rem !important;
+}
+
+.approvalBackButton .sapMBtnInner {
+    min-height: 2.8rem !important;
+    padding: 0 1rem !important;
+
+    border: 1px solid rgba(8, 127, 91, 0.2) !important;
+    border-radius: 0.85rem !important;
+
+    background: #ffffff !important;
+
+    box-shadow:
+        0 8px 20px rgba(37, 68, 61, 0.07) !important;
+}
+
+.approvalBackButton .sapMBtnContent,
+.approvalBackButton .sapMBtnIcon {
+    color: #087f5b !important;
+    font-weight: 750 !important;
+}
+
+.approvalPendingStatus {
+    padding: 0.45rem 0.9rem !important;
+
+    border-radius: 999px !important;
+    background: #fff4df !important;
+}
+
+.approvalPendingStatus .sapMObjStatusText {
+    color: #a85f00 !important;
+    font-weight: 750 !important;
+}
+
+.approvalHero {
+    width: 100% !important;
+    max-width: 760px !important;
+}
+
+.approvalEyebrow {
+    color: #087f5b !important;
+
+    font-size: 0.78rem !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.08em !important;
+}
+
+.approvalTitle {
+    margin-top: 0.45rem !important;
+
+    color: #174b3e !important;
+
+    font-size: 3rem !important;
+    font-weight: 900 !important;
+    line-height: 1.08 !important;
+}
+
+.approvalDescription {
+    display: block !important;
+    margin-top: 0.8rem !important;
+
+    color: #687a76 !important;
+
+    font-size: 1rem !important;
+    line-height: 1.6 !important;
+}
+
+/* ÖZET */
+
+.approvalSummaryGrid {
+    width: 100% !important;
+
+    gap: 1rem !important;
+    margin-top: 2.4rem !important;
+}
+
+.approvalSummaryCard {
+    width: calc(25% - 0.75rem) !important;
+    min-height: 10rem !important;
+
+    padding: 1.2rem !important;
+    box-sizing: border-box !important;
+
+    border: 1px solid rgba(8, 127, 91, 0.13) !important;
+    border-radius: 1rem !important;
+
+    background: #ffffff !important;
+
+    box-shadow:
+        0 12px 28px rgba(37, 68, 61, 0.07) !important;
+}
+
+.approvalSummaryIconBox {
+    width: 2.8rem !important;
+    height: 2.8rem !important;
+
+    border-radius: 0.8rem !important;
+    background: #e5f5ee !important;
+}
+
+.approvalSummaryIcon {
+    color: #087f5b !important;
+    font-size: 1.25rem !important;
+}
+
+.approvalDangerIcon,
+.approvalDangerValue {
+    color: #c92a2a !important;
+}
+
+.approvalSummaryLabel {
+    display: block !important;
+    margin-top: 1rem !important;
+
+    color: #71817d !important;
+
+    font-size: 0.75rem !important;
+    font-weight: 700 !important;
+}
+
+.approvalSummaryValue {
+    display: block !important;
+    margin-top: 0.4rem !important;
+
+    color: #174b3e !important;
+
+    font-size: 1.6rem !important;
+    font-weight: 900 !important;
+}
+
+.approvalWarningValue {
+    color: #b26a00 !important;
+}
+
+/* BAŞLIK */
+
+.approvalSectionHeader {
+    width: 100% !important;
+
+    margin-top: 3rem !important;
+    margin-bottom: 1.2rem !important;
+}
+
+.approvalSectionTitle {
+    color: #174b3e !important;
+
+    font-size: 1.4rem !important;
+    font-weight: 850 !important;
+}
+
+.approvalSectionDescription {
+    display: block !important;
+    margin-top: 0.4rem !important;
+
+    color: #71817d !important;
+    font-size: 0.88rem !important;
+}
+
+.approvalRefreshButton .sapMBtnContent,
+.approvalRefreshButton .sapMBtnIcon {
+    color: #087f5b !important;
+    font-weight: 750 !important;
+}
+
+/* TALEP KARTLARI */
+
+.approvalRequestList {
+    width: 100% !important;
+    gap: 1rem !important;
+}
+
+.approvalRequestCard {
+    width: 100% !important;
+
+    padding: 1.5rem !important;
+    box-sizing: border-box !important;
+
+    border: 1px solid rgba(8, 127, 91, 0.13) !important;
+    border-radius: 1.1rem !important;
+
+    background: #ffffff !important;
+
+    box-shadow:
+        0 14px 34px rgba(37, 68, 61, 0.08) !important;
+}
+
+.approvalRequestHeader,
+.approvalRequestFooter {
+    width: 100% !important;
+}
+
+.approvalRequestIdentity {
+    gap: 0.9rem !important;
+}
+
+.approvalRequestIconBox {
+    width: 3.4rem !important;
+    height: 3.4rem !important;
+    min-width: 3.4rem !important;
+
+    border-radius: 1rem !important;
+
+    background:
+        linear-gradient(
+            145deg,
+            #dff4ea,
+            #eefaf5
+        ) !important;
+}
+
+.approvalRequestIcon {
+    color: #087f5b !important;
+    font-size: 1.55rem !important;
+}
+
+.approvalRequestTitle {
+    color: #174b3e !important;
+
+    font-size: 1.2rem !important;
+    font-weight: 850 !important;
+}
+
+.approvalRequestNumber {
+    display: block !important;
+    margin-top: 0.2rem !important;
+
+    color: #758681 !important;
+    font-size: 0.76rem !important;
+}
+
+.approvalRequestStatus {
+    padding: 0.35rem 0.7rem !important;
+
+    border-radius: 999px !important;
+    background: #fff4df !important;
+}
+
+.approvalRequestStatus .sapMObjStatusText {
+    color: #a85f00 !important;
+    font-weight: 750 !important;
+}
+
+.approvalRequestDetails {
+    width: 100% !important;
+
+    gap: 0.75rem !important;
+    margin-top: 1.4rem !important;
+}
+
+.approvalDetailItem {
+    width: calc(33.333% - 0.5rem) !important;
+
+    padding: 0.9rem !important;
+    box-sizing: border-box !important;
+
+    border: 1px solid #e8f1ed !important;
+    border-radius: 0.85rem !important;
+
+    background: #f8fcfa !important;
+}
+
+.approvalDetailLabel {
+    color: #71817d !important;
+
+    font-size: 0.7rem !important;
+    font-weight: 650 !important;
+}
+
+.approvalDetailValue {
+    display: block !important;
+    margin-top: 0.35rem !important;
+
+    color: #174b3e !important;
+
+    font-size: 0.92rem !important;
+    font-weight: 800 !important;
+}
+
+.approvalRequestFooter {
+    margin-top: 1.4rem !important;
+    padding-top: 1rem !important;
+
+    border-top: 1px solid #edf3f0 !important;
+}
+
+.approvalCreatedText {
+    color: #758681 !important;
+    font-size: 0.75rem !important;
+}
+
+.approvalActions {
+    gap: 0.65rem !important;
+}
+
+/* BOŞ VE YÜKLENİYOR */
+
+.approvalLoadingArea {
+    width: 100% !important;
+    min-height: 10rem !important;
+}
+
+.approvalMessageStrip {
+    margin-bottom: 1rem !important;
+}
+
+.approvalEmptyState {
+    width: 100% !important;
+
+    padding: 3rem 1rem !important;
+    box-sizing: border-box !important;
+
+    border: 1px dashed rgba(8, 127, 91, 0.25) !important;
+    border-radius: 1rem !important;
+
+    background: #ffffff !important;
+}
+
+.approvalEmptyIconBox {
+    width: 4rem !important;
+    height: 4rem !important;
+
+    border-radius: 1.2rem !important;
+    background: #e5f7ed !important;
+}
+
+.approvalEmptyIcon {
+    color: #087f5b !important;
+    font-size: 1.8rem !important;
+}
+
+.approvalEmptyTitle {
+    margin-top: 1rem !important;
+
+    color: #174b3e !important;
+    font-weight: 850 !important;
+}
+
+.approvalEmptyText {
+    max-width: 30rem !important;
+    margin-top: 0.5rem !important;
+
+    color: #71817d !important;
+    line-height: 1.5 !important;
+}
+
+@media (max-width: 900px) {
+    .approvalSummaryCard {
+        width: calc(50% - 0.5rem) !important;
+    }
+
+    .approvalDetailItem {
+        width: calc(50% - 0.375rem) !important;
+    }
+}
+
+@media (max-width: 680px) {
+    .approvalShell {
+        padding: 1.2rem 1rem 2rem !important;
+    }
+
+    .approvalTitle {
+        font-size: 2.15rem !important;
+    }
+
+    .approvalSummaryCard,
+    .approvalDetailItem {
+        width: 100% !important;
+    }
+
+    .approvalPendingStatus {
+        display: none !important;
+    }
+
+    .approvalRequestFooter {
+        align-items: flex-start !important;
+    }
+}

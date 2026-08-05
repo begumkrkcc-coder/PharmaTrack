@@ -1,0 +1,574 @@
+/* =========================================================
+   PHARMATRACK — ŞUBELER EKRANI
+   ========================================================= */
+
+.branchesPage,
+.branchesPage .sapMPageBgStandard,
+.branchesPage .sapMPageEnableScrolling,
+.branchesPage section {
+    background: #f5faf7 !important;
+}
+
+/* Ana alan */
+
+.branchesShell {
+    width: 100% !important;
+    max-width: 1180px !important;
+    min-height: 100vh !important;
+
+    margin: 0 auto !important;
+    padding: 2.5rem 2rem 4rem !important;
+    box-sizing: border-box !important;
+}
+
+/* Üst navigasyon */
+
+.branchesTopBar {
+    width: 100% !important;
+    margin-bottom: 2.8rem !important;
+}
+
+.branchesBackButton .sapMBtnInner {
+    min-height: 2.8rem !important;
+
+    padding: 0 1rem !important;
+
+    border: 1px solid rgba(8, 127, 91, 0.18) !important;
+    border-radius: 0.8rem !important;
+
+    background: #ffffff !important;
+    color: #087f5b !important;
+
+    font-weight: 700 !important;
+
+    box-shadow:
+        0 8px 20px rgba(37, 68, 61, 0.07) !important;
+}
+
+.branchesBackButton .sapMBtnContent,
+.branchesBackButton .sapMBtnIcon {
+    color: #087f5b !important;
+}
+
+.branchesActiveStatus {
+    padding: 0.45rem 0.9rem !important;
+
+    border-radius: 999px !important;
+
+    background: #e5f7ed !important;
+}
+
+.branchesActiveStatus .sapMObjStatusText {
+    color: #087f5b !important;
+
+    font-size: 0.82rem !important;
+    font-weight: 700 !important;
+}
+
+/* Başlık alanı */
+
+.branchesHero {
+    width: 100% !important;
+    max-width: 760px !important;
+}
+
+.branchesEyebrow {
+    color: #087f5b !important;
+
+    font-size: 0.8rem !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.08em !important;
+}
+
+.branchesTitle {
+    margin-top: 0.45rem !important;
+
+    color: #174b3e !important;
+
+    font-size: 3rem !important;
+    font-weight: 900 !important;
+    line-height: 1.08 !important;
+}
+
+.branchesDescription {
+    display: block !important;
+
+    margin-top: 0.8rem !important;
+
+    color: #687a76 !important;
+
+    font-size: 1rem !important;
+    line-height: 1.6 !important;
+}
+
+/* Kart yerleşimi */
+
+.branchesGrid {
+    width: 100% !important;
+
+    gap: 1.25rem !important;
+    margin-top: 2.5rem !important;
+}
+
+/* Şube kartı */
+
+.branchCard {
+    width: calc(33.333% - 0.84rem) !important;
+    min-height: 31rem !important;
+
+    padding: 1.5rem !important;
+    box-sizing: border-box !important;
+
+    border: 1px solid rgba(8, 127, 91, 0.14) !important;
+    border-radius: 1.25rem !important;
+
+    background: #ffffff !important;
+
+    box-shadow:
+        0 16px 38px rgba(37, 68, 61, 0.09) !important;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease !important;
+}
+
+.branchCardFeatured {
+    border-color: rgba(8, 127, 91, 0.32) !important;
+
+    background:
+        linear-gradient(
+            145deg,
+            #f1fff8 0%,
+            #ffffff 75%
+        ) !important;
+}
+
+.branchCard:hover {
+    transform: translateY(-5px) !important;
+
+    border-color: rgba(8, 127, 91, 0.32) !important;
+
+    box-shadow:
+        0 24px 50px rgba(37, 68, 61, 0.14) !important;
+}
+
+/* Kart başlığı */
+
+.branchCardHeader {
+    width: 100% !important;
+}
+
+.branchIdentity {
+    gap: 0.85rem !important;
+}
+
+.branchIconBox {
+    width: 3.6rem !important;
+    height: 3.6rem !important;
+    min-width: 3.6rem !important;
+
+    border-radius: 1rem !important;
+
+    background:
+        linear-gradient(
+            145deg,
+            #dff4ea,
+            #edf9f3
+        ) !important;
+}
+
+.branchIcon {
+    color: #087f5b !important;
+    font-size: 1.7rem !important;
+}
+
+.branchName {
+    margin: 0 !important;
+
+    color: #174b3e !important;
+
+    font-size: 1.25rem !important;
+    font-weight: 850 !important;
+}
+
+.branchLocation {
+    display: block !important;
+
+    margin-top: 0.18rem !important;
+
+    color: #758681 !important;
+
+    font-size: 0.76rem !important;
+}
+
+/* Aktif etiketi */
+
+.branchStatus {
+    padding: 0.35rem 0.65rem !important;
+
+    border-radius: 999px !important;
+
+    background: #e6f7ee !important;
+}
+
+.branchStatus .sapMObjStatusText {
+    color: #087f5b !important;
+
+    font-size: 0.73rem !important;
+    font-weight: 750 !important;
+}
+
+/* Ciro alanı */
+
+.branchRevenueBox {
+    width: 100% !important;
+
+    margin-top: 1.5rem !important;
+    padding: 1.2rem !important;
+    box-sizing: border-box !important;
+
+    border: 1px solid #e8f1ed !important;
+    border-radius: 1rem !important;
+
+    background: #f6fbf8 !important;
+}
+
+.branchRevenueLabel {
+    color: #71817d !important;
+
+    font-size: 0.76rem !important;
+}
+
+.branchRevenueValue {
+    display: block !important;
+
+    margin-top: 0.3rem !important;
+
+    color: #174b3e !important;
+
+    font-size: 1.8rem !important;
+    font-weight: 900 !important;
+}
+
+.branchRevenueChange {
+    display: block !important;
+
+    margin-top: 0.35rem !important;
+
+    color: #087f5b !important;
+
+    font-size: 0.74rem !important;
+    font-weight: 700 !important;
+}
+
+/* İstatistik kutuları */
+
+.branchMetrics {
+    width: 100% !important;
+
+    gap: 0.65rem !important;
+    margin-top: 1rem !important;
+}
+
+.branchMetric {
+    width: calc(33.333% - 0.44rem) !important;
+    min-height: 5.3rem !important;
+
+    padding: 0.85rem !important;
+    box-sizing: border-box !important;
+
+    border: 1px solid #edf3f0 !important;
+    border-radius: 0.85rem !important;
+
+    background: #fafdfb !important;
+}
+
+.branchMetricLabel {
+    color: #748580 !important;
+
+    font-size: 0.68rem !important;
+    line-height: 1.3 !important;
+}
+
+.branchMetricValue {
+    display: block !important;
+
+    margin-top: 0.38rem !important;
+
+    color: #174b3e !important;
+
+    font-size: 1.16rem !important;
+    font-weight: 850 !important;
+}
+
+.branchMetricDanger {
+    color: #c92a2a !important;
+}
+
+.branchMetricWarning {
+    color: #b26a00 !important;
+}
+
+/* Yeşil buton */
+
+.branchActionButton {
+    width: 100% !important;
+
+    margin-top: auto !important;
+    padding-top: 1.4rem !important;
+}
+
+.branchActionButton .sapMBtnInner {
+    width: 100% !important;
+    height: 3.2rem !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    border: none !important;
+    border-radius: 0.85rem !important;
+
+    background:
+        linear-gradient(
+            90deg,
+            #087f5b,
+            #079b6d
+        ) !important;
+
+    color: #ffffff !important;
+
+    font-size: 0.94rem !important;
+    font-weight: 800 !important;
+
+    box-shadow:
+        0 11px 24px rgba(8, 127, 91, 0.22) !important;
+}
+
+.branchActionButton .sapMBtnContent,
+.branchActionButton .sapMBtnIcon {
+    color: #ffffff !important;
+}
+
+/* Alt bilgi şeridi */
+
+.branchesInfoStrip {
+    width: 100% !important;
+
+    gap: 0.65rem !important;
+    margin-top: 1.4rem !important;
+    padding: 0.9rem 1rem !important;
+    box-sizing: border-box !important;
+
+    border: 1px solid rgba(8, 127, 91, 0.1) !important;
+    border-radius: 0.9rem !important;
+
+    background: #edf8f2 !important;
+}
+
+.branchesInfoIcon {
+    color: #087f5b !important;
+}
+
+.branchesInfoText {
+    color: #5f716d !important;
+
+    font-size: 0.78rem !important;
+}
+
+/* Tablet */
+
+@media (max-width: 1020px) {
+    .branchCard {
+        width: calc(50% - 0.625rem) !important;
+    }
+}
+
+/* Telefon */
+
+@media (max-width: 700px) {
+    .branchesShell {
+        padding: 1.2rem 1rem 2rem !important;
+    }
+
+    .branchesTopBar {
+        margin-bottom: 2rem !important;
+    }
+
+    .branchesTitle {
+        font-size: 2.15rem !important;
+    }
+
+    .branchesDescription {
+        font-size: 0.9rem !important;
+    }
+
+    .branchCard {
+        width: 100% !important;
+        min-height: 29rem !important;
+    }
+
+    .branchesActiveStatus {
+        display: none !important;
+    }
+    /* =========================================================
+   ŞUBE DETAY EKRANI
+   ========================================================= */
+
+    .branchDetailPage,
+    .branchDetailPage .sapMPageBgStandard,
+    .branchDetailPage .sapMPageEnableScrolling,
+    .branchDetailPage section {
+        background: #f5faf7 !important;
+    }
+
+    .branchDetailShell {
+        width: 100% !important;
+        max-width: 1180px !important;
+
+        margin: 0 auto !important;
+        padding: 2.5rem 2rem 4rem !important;
+        box-sizing: border-box !important;
+    }
+
+    .branchDetailTopBar {
+        width: 100% !important;
+        margin-bottom: 2.5rem !important;
+    }
+
+    .branchDetailHero {
+        width: 100% !important;
+        max-width: 760px !important;
+    }
+
+    .branchDetailKpiGrid,
+    .branchDetailModuleGrid {
+        width: 100% !important;
+
+        gap: 1rem !important;
+        margin-top: 2.2rem !important;
+    }
+
+    .branchDetailKpiCard {
+        width: calc(20% - 0.8rem) !important;
+        min-height: 8rem !important;
+
+        padding: 1.2rem !important;
+        box-sizing: border-box !important;
+
+        border: 1px solid rgba(8, 127, 91, 0.13) !important;
+        border-radius: 1rem !important;
+
+        background: #ffffff !important;
+
+        box-shadow:
+        0 12px 28px rgba(37, 68, 61, 0.07) !important;
+    }
+
+    .branchDetailKpiLabel {
+        color: #71817d !important;
+
+        font-size: 0.76rem !important;
+        font-weight: 650 !important;
+    }
+
+     .branchDetailKpiValue {
+        display: block !important;
+
+        margin-top: 0.7rem !important;
+
+        color: #174b3e !important;
+
+        font-size: 1.55rem !important;
+        font-weight: 900 !important;
+    }
+
+    .branchDetailModuleGrid .dashboardCard {
+        width: calc(50% - 0.5rem) !important;
+    }
+
+@media (max-width: 900px) {
+    .branchDetailKpiCard {
+        width: calc(50% - 0.5rem) !important;
+    }
+}
+
+@media (max-width: 680px) {
+    .branchDetailShell {
+        padding: 1.2rem 1rem 2rem !important;
+    }
+
+    .branchDetailKpiCard,
+    .branchDetailModuleGrid .dashboardCard {
+        width: 100% !important;
+    }
+}
+.branchDetailShell {
+    width: 100% !important;
+    max-width: 1180px !important;
+    margin: 0 auto !important;
+    padding: 2.5rem 2rem 4rem !important;
+    box-sizing: border-box !important;
+}
+
+.branchDetailHero {
+    margin-bottom: 2rem !important;
+}
+
+.branchDetailKpiGrid {
+    width: 100% !important;
+    gap: 1rem !important;
+    margin-bottom: 2rem !important;
+}
+
+.branchDetailKpiCard {
+    width: calc(20% - 0.8rem) !important;
+    padding: 1.2rem !important;
+    box-sizing: border-box !important;
+    border: 1px solid rgba(8, 127, 91, 0.14) !important;
+    border-radius: 1rem !important;
+    background: #ffffff !important;
+}
+
+.branchDetailModuleGrid {
+    width: 100% !important;
+    gap: 1rem !important;
+}
+
+.branchDetailModuleGrid .dashboardCard {
+    width: calc(50% - 0.5rem) !important;
+}
+/* Şube detay ekranındaki özet kartı */
+
+#branchDetailPage .branchesGrid .branchCard {
+    width: 100% !important;
+    max-width: 760px !important;
+    min-height: 27rem !important;
+}
+
+/* Şube modülleri 2 x 2 düzen */
+
+#branchDetailPage .adminMainCardGrid {
+    width: 100% !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 1rem !important;
+    margin-top: 1.5rem !important;
+}
+
+#branchDetailPage .adminMainCardGrid .dashboardCard {
+    width: calc(50% - 0.5rem) !important;
+    min-height: 17rem !important;
+}
+
+#branchDetailPage .branchesHeader {
+    margin-top: 3rem !important;
+}
+
+@media (max-width: 700px) {
+    #branchDetailPage .adminMainCardGrid .dashboardCard {
+        width: 100% !important;
+    }
+}
+} 

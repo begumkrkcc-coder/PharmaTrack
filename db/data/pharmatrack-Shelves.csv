@@ -1,0 +1,9 @@
+ID,code,aisle,cabinet,level,compartment,description,isActive
+08d36f25-e9b1-52d7-9c8e-1552cc732490,R01,A1,D1,1,A,Eczane rafı R01,true
+fed421b7-5d46-52bc-8af7-92f5c4a44fca,R02,A1,D2,2,B,Eczane rafı R02,true
+37294b41-7dcf-54b9-965d-3797095b3dcd,R03,A1,D3,3,C,Eczane rafı R03,true
+50c96002-468b-5cad-b208-7f5ca5fb776f,R04,A1,D4,1,D,Eczane rafı R04,true
+281b59c4-b157-5c8f-ba17-dce8671f09a2,R05,A2,D1,2,A,Eczane rafı R05,true
+570524d9-2577-5ef6-807b-67c11f3114c8,R06,A2,D2,3,B,Eczane rafı R06,true
+42d37d6b-637e-5e26-bc0c-9977ac6d8e47,R07,A2,D3,1,C,Eczane rafı R07,true
+c7dedbb0-6dd2-5c6e-9b7d-dd45a5d91e30,R08,A2,D4,2,D,Eczane rafı R08,true

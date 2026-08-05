@@ -1,0 +1,48 @@
+{
+  "name": "pharmatrack-cap",
+  "version": "1.0.0",
+  "type": "module",
+  "engines": {
+    "node": "22.x"
+  },
+  "dependencies": {
+    "@cap-js/hana": "^3",
+    "@sap/cds": "^10",
+    "@sap/xssec": "^4.13.3",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "@cap-js/sqlite": "^3",
+    "@sap/cds-dk": "^10",
+    "@sap/generator-fiori": "^1.28.0",
+    "cds-plugin-ui5": "^0.17.0",
+    "yo": "^7.0.1"
+  },
+  "scripts": {
+    "start": "cds-serve",
+    "watch-project1": "cds watch --open project1/index.html?sap-ui-xx-viewCache=false --livereload false",
+    "watch-project2": "cds watch --open pharmatrack.project2/index.html?sap-ui-xx-viewCache=false --livereload false"
+  },
+  "private": true,
+  "workspaces": [
+    "app/*"
+  ],
+  "sapux": [
+    "app/project1",
+    "app/project2"
+  ],
+  "cds": {
+    "requires": {
+      "[hybrid]": {
+        "db": {
+          "kind": "hana"
+        }
+      },
+      "[production]": {
+        "db": {
+          "kind": "hana"
+        }
+      }
+    }
+  }
+}

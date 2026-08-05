@@ -1,0 +1,144 @@
+{
+  "_version": "1.65.0",
+  "sap.app": {
+    "id": "pharmatrack.login",
+    "type": "application",
+    "title": "PharmaTrack",
+    "description": "PharmaTrack Pharmacy Automation System",
+    "applicationVersion": {
+      "version": "1.0.0"
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "dependencies": {
+      "minUI5Version": "1.120.0",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.ndc": {}
+      }
+    },
+    "rootView": {
+      "viewName": "pharmatrack.login.view.App",
+      "type": "XML",
+      "async": true,
+      "id": "app"
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        },
+        {
+          "uri": "css/branches.css"
+        },
+        {
+          "uri": "css/approval-center.css"
+        },
+        {
+          "uri": "css/notification-center.css"
+        },
+        {
+          "uri": "css/purchase-center.css"
+        },
+        {
+          "uri": "css/sales.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "viewPath": "pharmatrack.login.view",
+        "controlId": "loginApp",
+        "controlAggregation": "pages",
+        "async": true
+      },
+      "routes": [
+        {
+          "pattern": "sales",
+          "name": "sales",
+          "target": "sales"
+        },
+        {
+          "pattern": "sales-history",
+          "name": "salesHistory",
+          "target": "salesHistory"
+        },
+        {
+          "pattern": "analytics",
+          "name": "analytics",
+          "target": "analytics"
+        },
+        {
+          "pattern": "stock-entry",
+          "name": "stockEntry",
+          "target": "stockEntry"
+        },
+        {
+          "pattern": "branches",
+          "name": "branches",
+          "target": "branches"
+        },
+        {
+          "pattern": "branch-detail/{branchID}",
+          "name": "branchDetail",
+          "target": "branchDetail"
+        },
+        {
+          "pattern": "approval-center",
+          "name": "approvalCenter",
+          "target": "approvalCenter"
+        },
+        {
+          "pattern": "notification-center",
+          "name": "notificationCenter",
+          "target": "notificationCenter"
+        },
+        {
+          "pattern": "purchase-center",
+          "name": "purchaseCenter",
+          "target": "purchaseCenter"
+        }
+      ],
+      "targets": {
+        "sales": {
+          "viewName": "Sales"
+        },
+        "salesHistory": {
+          "viewName": "SalesHistory"
+        },
+        "analytics": {
+          "viewName": "Analytics"
+        },
+        "stockEntry": {
+          "viewName": "StockEntry"
+        },
+        "branches": {
+          "viewName": "Branches"
+        },
+        "branchDetail": {
+          "viewName": "BranchDetail"
+        },
+        "approvalCenter": {
+          "viewName": "ApprovalCenter"
+        },
+        "notificationCenter": {
+          "viewName": "NotificationCenter"
+        },
+        "purchaseCenter": {
+          "viewName": "PurchaseCenter"
+        }
+      }
+    }
+  }
+}
