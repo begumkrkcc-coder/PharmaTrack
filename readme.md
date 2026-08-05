@@ -1,22 +1,108 @@
-# Getting Started
+# 💊 PharmaTrack
 
-Welcome to your new CAP project.
+A modern pharmacy inventory and sales management system developed with **SAP CAP** and **SAP Fiori Elements**.
 
-It contains these folders and files, following our recommended project layout:
+PharmaTrack helps pharmacies manage medicines, inventory, sales, prescription validation, and stock monitoring through a clean Fiori interface.
 
-File or Folder | Purpose
----------|----------
-`app/` | content for UI frontends goes here
-`db/` | your domain models and data go here
-`srv/` | your service models and code go here
-`readme.md` | this getting started guide
+---
 
-## Next Steps
+## ✨ Features
 
-- Open a new terminal and run `cds watch`
-- (in VS Code simply choose _**Terminal** > Run Task > cds watch_)
-- Start with your domain model, in a CDS file in `db/`
+- 📦 Medicine Management
+  - Add, update and delete medicines
+  - Barcode support
+  - Medicine categories
+  - Shelf location management
 
-## Learn More
+- 📋 Batch Management
+  - Lot number tracking
+  - Expiry date tracking
+  - Purchase & sale prices
+  - Quantity management
 
-Learn more at <https://cap.cloud.sap>.
+- 💰 Sales Management
+  - Sales recording
+  - Automatic stock updates
+  - Sales history
+
+- 🩺 Prescription Support
+  - Prescription validation
+  - Prescription-only medicine control
+
+- ⚠️ Inventory Monitoring
+  - Low stock alerts
+  - Expired medicine tracking
+  - Stock reporting
+
+---
+
+## 🛠 Technologies
+
+- SAP CAP (Cloud Application Programming Model)
+- SAP CDS
+- SAP Fiori Elements
+- Node.js
+- SQLite
+- OData V4
+
+---
+
+## 📁 Project Structure
+
+```
+app/
+db/
+srv/
+scripts/
+package.json
+```
+
+---
+
+## 🚀 Getting Started
+
+Install dependencies
+
+```bash
+npm install
+```
+
+Start the CAP application
+
+```bash
+cds watch
+```
+
+Open
+
+```
+http://localhost:4004
+```
+
+---
+
+## 📸 Screenshots
+
+Screenshots will be added soon.
+
+---
+
+## 🔮 Planned Improvements
+
+- AI Assistant
+- Natural language commands
+- Barcode camera scanning
+- Dashboard & analytics
+- Advanced reporting
+- Receipt generation
+
+---
+
+## 👩‍💻 Developer
+
+**Begüm Karakoç**
+
+Computer Engineering Student
+
+GitHub:
+https://github.com/begumkrkcc-coder
