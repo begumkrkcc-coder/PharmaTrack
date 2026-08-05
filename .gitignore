@@ -17,3 +17,9 @@ mta_archives/
 
 # @cap-js/cds-typer
 @cds-models
+
+node_modules/
+gen/
+db.sqlite
+.env
+*.zip
